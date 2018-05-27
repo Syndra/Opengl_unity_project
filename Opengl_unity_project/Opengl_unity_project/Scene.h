@@ -1,6 +1,7 @@
 #pragma once
 #include "object.h"
 #include "Camera.h"
+#include "Input_check.h"
 #include "Vertex_data.h"
 #include <iostream>
 #include <vector>

@@ -45,6 +45,7 @@ void Scene::render_scene()
 
 		for (int it = 0; it < this->object_in_scene.size(); it++)
 		{
+			Input_check::input_check(window, this->camera_in_scene);
 			this->object_in_scene.at(it)->render_object(this->camera_in_scene);
 		}
 		glfwSwapBuffers(window);

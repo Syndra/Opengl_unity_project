@@ -122,6 +122,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="control.cpp" />
+    <ClCompile Include="Input_check.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="object.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -132,6 +133,7 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="control.h" />
+    <ClInclude Include="Input_check.h" />
     <ClInclude Include="linmath.h" />
     <ClInclude Include="object.h" />
     <ClInclude Include="Scene.h" />

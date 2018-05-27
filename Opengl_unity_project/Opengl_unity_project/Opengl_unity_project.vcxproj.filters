@@ -84,6 +84,9 @@
     <ClCompile Include="Vertex_data.cpp">
       <Filter>소스 파일\Sprite</Filter>
     </ClCompile>
+    <ClCompile Include="Input_check.cpp">
+      <Filter>소스 파일\Controller</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -109,6 +112,9 @@
     </ClInclude>
     <ClInclude Include="Window.h">
       <Filter>헤더 파일\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Input_check.h">
+      <Filter>헤더 파일\Controller</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
