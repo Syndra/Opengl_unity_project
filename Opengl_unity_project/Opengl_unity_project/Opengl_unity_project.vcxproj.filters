@@ -58,13 +58,22 @@
     <Filter Include="헤더 파일\Window\Scene">
       <UniqueIdentifier>{d46eafbf-97a3-443d-bbb1-7dd17e8c6082}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Object\Gameobject">
+      <UniqueIdentifier>{03b2bce2-5456-4d89-97dc-710e039d8783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Object\Gameobject">
+      <UniqueIdentifier>{5c5553a4-c8b0-42d0-ad8e-b112919cd511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Timer">
+      <UniqueIdentifier>{67cf6817-4ad2-4da4-a03a-0eece0c08fa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Timer">
+      <UniqueIdentifier>{46987c99-b473-49fe-b4f5-8e250b495552}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="object.cpp">
-      <Filter>소스 파일\Object</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>소스 파일\Object\Camera</Filter>
@@ -87,6 +96,15 @@
     <ClCompile Include="Input_check.cpp">
       <Filter>소스 파일\Controller</Filter>
     </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>소스 파일\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="object.cpp">
+      <Filter>소스 파일\Object\Gameobject</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>소스 파일\Timer</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -97,9 +115,6 @@
     </ClInclude>
     <ClInclude Include="linmath.h">
       <Filter>헤더 파일\Lib</Filter>
-    </ClInclude>
-    <ClInclude Include="object.h">
-      <Filter>헤더 파일\Object</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>헤더 파일\Window\Scene</Filter>
@@ -115,6 +130,15 @@
     </ClInclude>
     <ClInclude Include="Input_check.h">
       <Filter>헤더 파일\Controller</Filter>
+    </ClInclude>
+    <ClInclude Include="object.h">
+      <Filter>헤더 파일\Object\Gameobject</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>헤더 파일\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>헤더 파일\Timer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

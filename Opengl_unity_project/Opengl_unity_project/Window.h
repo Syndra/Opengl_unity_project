@@ -3,14 +3,14 @@
 #include <gl\glew.h>
 #include <GLFW\glfw3.h>
 #include <iostream>
-#include "Scene.h"
+
+class Scene;
 
 class Window
 {
 public:
 
-	//window properties.
-	GLFWwindow *window;
+	static GLFWwindow *window;
 	Scene *current_scene;
 
 	Window();

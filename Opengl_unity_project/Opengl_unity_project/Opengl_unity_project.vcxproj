@@ -120,6 +120,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="control.cpp" />
     <ClCompile Include="Input_check.cpp" />
@@ -127,10 +128,12 @@
     <ClCompile Include="object.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Vertex_data.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="control.h" />
     <ClInclude Include="Input_check.h" />
@@ -138,6 +141,7 @@
     <ClInclude Include="object.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="Vertex_data.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>

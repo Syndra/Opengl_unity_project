@@ -1,5 +1,5 @@
 #include "Input_check.h"
-
+#include <iostream>
 
 Input_check::Input_check()
 {
@@ -10,15 +10,11 @@ Input_check::~Input_check()
 {
 }
 
-void Input_check::input_check(GLFWwindow * window, Camera * camera)
+void Input_check::input_check(std::vector <BaseObject *> baseobjects)
 {
-	if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS)
+	for (int i = 0; i < baseobjects.size() ; i++) 
 	{
-		camera->position.x++;
-	}
-	if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS)
-	{
-		camera->position.x--;
+		baseobjects.at(i)->update();
 	}
 }
 

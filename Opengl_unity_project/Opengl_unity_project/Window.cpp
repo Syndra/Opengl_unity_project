@@ -1,11 +1,14 @@
 #include "Window.h"
+#include "Scene.h"
 
+
+GLFWwindow* Window::window;
 
 Window::Window()
 {
 	if (this->init_glfw()) 
 	{
-		this->window = glfwCreateWindow(640, 480, "My title", NULL, NULL);
+		Window::window = glfwCreateWindow(1024, 768, "My title", NULL, NULL);
 		glfwMakeContextCurrent(window);
 	}
 	init_glew();

@@ -9,6 +9,7 @@ public:
 	~Vertex_data();
 
 	static const GLint vertex_num = 9;
+	static const GLint cube_num = 108;
 
 	static GLfloat cube_color_data[108];
 	static GLfloat textureCoordinate[6];

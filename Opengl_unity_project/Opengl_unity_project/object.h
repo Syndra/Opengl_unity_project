@@ -3,10 +3,11 @@
 #include <GLFW\glfw3.h>
 #include <glm\glm.hpp>
 #include "control.h"
+#include "BaseObject.h"
 
 class Camera;
 
-class object
+class object : public BaseObject
 {
 public:
 	
@@ -35,7 +36,8 @@ public:
 	glm::mat4 compute_model_matrix();
 
 	//render method.
-	void render_object(Camera* camera);
+	void render(Camera *camera);
 	void set_mesh();
+	void update();
 };
 

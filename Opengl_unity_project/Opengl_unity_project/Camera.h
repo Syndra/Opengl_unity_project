@@ -3,8 +3,9 @@
 #include <GLFW\glfw3.h>
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
+#include "BaseObject.h"
 
-class Camera
+class Camera : public BaseObject
 {
 public:
 
@@ -19,11 +20,16 @@ public:
 	GLfloat near;
 	GLfloat far;
 
+	GLfloat v_angle;
+	GLfloat h_angle;
+
 	glm::vec3 up = glm::vec3(0,1,0);
 
 	Camera();
 	~Camera();
 	glm::mat4 get_projection_matrix();
 	glm::mat4 get_view_matrix();
+
+	void update();
 };
 

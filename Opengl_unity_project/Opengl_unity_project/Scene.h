@@ -5,6 +5,10 @@
 #include "Vertex_data.h"
 #include <iostream>
 #include <vector>
+
+class BaseObject;
+class Timer;
+
 class Scene
 {
 public:
@@ -18,8 +22,12 @@ public:
 	//Camera object.
 	Camera *camera_in_scene;
 
+	//Timer
+	Timer *timer;
+
 	//All objects in this scene.
-	std::vector<object*> object_in_scene;
+	std::vector<BaseObject*> object_in_scene;
+	std::vector<object*> object_render;
 
 	Scene(GLFWwindow *window);
 	~Scene();
