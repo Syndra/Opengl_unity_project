@@ -10,7 +10,7 @@ Scene::Scene(GLFWwindow *window)
 	triangle1->set_mesh();
 
 	//Push objects to vector.
-	//object_in_scene.push_back(triangle1);
+	object_in_scene.push_back(triangle1);
 	object_render.push_back(triangle1);
 
 	//render all objects in windows.

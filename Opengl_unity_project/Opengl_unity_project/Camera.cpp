@@ -6,7 +6,7 @@
 Camera::Camera()
 {
 	//set basic properties.
-	this->position = glm::vec3(0,0,-6);
+	this->position = glm::vec3(0,0,5);
 	this->lookat = glm::vec3(0,0,0);
 
 	this->fovy = 45.0f;
@@ -37,6 +37,7 @@ void Camera::update()
 {
 	double xpos, ypos;
 	float mouseSpeed = 0.005f;
+	float speed = 3.0f;
 
 	glfwGetCursorPos(Window::window, &xpos, &ypos);
 	glfwSetCursorPos(Window::window, 1024/2, 768/2);
@@ -50,14 +51,30 @@ void Camera::update()
 		cos(v_angle) * cos(h_angle)
 	);
 
-	this->lookat = position + direction;
+	glm::vec3 right = glm::vec3(
+		sin(h_angle - 3.14f / 2.0f),
+		0,
+		cos(h_angle - 3.14f / 2.0f)
+	);
 
-	if (glfwGetKey(Window::window, GLFW_KEY_1) == GLFW_PRESS)
-	{
-		position.x++;
+	glm::vec3 up = glm::cross(right, direction);
+
+	// Move forward
+	if (glfwGetKey(Window::window, GLFW_KEY_UP) == GLFW_PRESS) {
+		position += direction * Timer::deltatime * speed;
 	}
-	if (glfwGetKey(Window::window, GLFW_KEY_2) == GLFW_PRESS)
-	{
-		position.x--;
+	// Move backward
+	if (glfwGetKey(Window::window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+		position -= direction * Timer::deltatime * speed;
 	}
+	// Strafe right
+	if (glfwGetKey(Window::window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+		position += right * Timer::deltatime * speed;
+	}
+	// Strafe left
+	if (glfwGetKey(Window::window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+		position -= right * Timer::deltatime * speed;
+	}
+
+	this->lookat = position + direction;
 }

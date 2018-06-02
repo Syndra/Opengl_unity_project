@@ -8,6 +8,7 @@ Timer::Timer()
 	Timer::deltatime = 0;
 	Timer::fps = 0;
 	old_time = 0;
+	time_started = glfwGetTime();
 }
 
 

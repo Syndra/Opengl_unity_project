@@ -67,12 +67,5 @@ void object::set_mesh()
 
 void object::update()
 {
-	if (glfwGetKey(Window::window, GLFW_KEY_1) == GLFW_PRESS)
-	{
-		position.x++;
-	}
-	if (glfwGetKey(Window::window, GLFW_KEY_2) == GLFW_PRESS)
-	{
-		position.x--;
-	}
+
 }
