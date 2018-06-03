@@ -36,8 +36,8 @@ glm::mat4 Camera::get_view_matrix()
 void Camera::update()
 {
 	double xpos, ypos;
-	float mouseSpeed = 0.005f;
-	float speed = 3.0f;
+	float mouseSpeed = 0.015f;
+	float speed = 5.0f;
 
 	glfwGetCursorPos(Window::window, &xpos, &ypos);
 	glfwSetCursorPos(Window::window, 1024/2, 768/2);
