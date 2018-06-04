@@ -76,6 +76,12 @@
     <Filter Include="헤더 파일\Object\Gameobject\Block">
       <UniqueIdentifier>{07e5221c-2bbf-4d5b-b634-50670fc73c0c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="헤더 파일\Window\Gamemanager">
+      <UniqueIdentifier>{cb9ae2f3-f41a-4b4a-89e6-7695693096e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Window\Gamemanager">
+      <UniqueIdentifier>{ba5fe306-c1f7-4069-9aeb-4f7f6ab2a033}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -114,6 +120,15 @@
     <ClCompile Include="Tetris_block.cpp">
       <Filter>소스 파일\Object\Gameobject\Block</Filter>
     </ClCompile>
+    <ClCompile Include="Gamemanager.cpp">
+      <Filter>소스 파일\Window\Gamemanager</Filter>
+    </ClCompile>
+    <ClCompile Include="Block.cpp">
+      <Filter>소스 파일\Object\Gameobject\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="Block_type.cpp">
+      <Filter>소스 파일\Object\Gameobject\Block</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -150,6 +165,15 @@
       <Filter>헤더 파일\Timer</Filter>
     </ClInclude>
     <ClInclude Include="Tetris_block.h">
+      <Filter>헤더 파일\Object\Gameobject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Gamemanager.h">
+      <Filter>헤더 파일\Window\Gamemanager</Filter>
+    </ClInclude>
+    <ClInclude Include="Block.h">
+      <Filter>헤더 파일\Object\Gameobject\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Block_type.h">
       <Filter>헤더 파일\Object\Gameobject\Block</Filter>
     </ClInclude>
   </ItemGroup>

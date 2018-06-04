@@ -1,23 +1,20 @@
 #include "Scene.h"
 #include "Timer.h"
 #include "Tetris_block.h"
+#include "Block.h"
 
 Scene::Scene(GLFWwindow *window)
 {
 	this->init_scene(window);
 
 	//Generate object. set mesh.
-	//object *triangle1 = new object();
-	Tetris_block *block = new Tetris_block();;
-	//triangle1->set_mesh();
+	//Tetris_block *block = new Tetris_block();
+	Block *block = new Block();
 	block->set_mesh();
 
 	//Push objects to vector.
-	//object_in_scene.push_back(triangle1);
-	//object_render.push_back(triangle1);
 	object_in_scene.push_back(block);
 	object_render.push_back(block);
-
 
 	//render all objects in windows.
 	render_scene();
@@ -35,6 +32,7 @@ void Scene::init_scene(GLFWwindow *window)
 	//Init default camera.
 	this->window = window;
 	this->camera_in_scene = new Camera();
+	this->camera_in_scene->position.z = 50;
 	object_in_scene.push_back(camera_in_scene);
 
 	timer = new Timer();

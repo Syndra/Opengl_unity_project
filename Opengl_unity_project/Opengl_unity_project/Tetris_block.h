@@ -35,6 +35,7 @@ public:
 
 	void render(Camera *camera);
 	void set_mesh();
+	void set_mesh(GLuint type);
 	void update();
 	glm::mat4 compute_model_matrix();
 };

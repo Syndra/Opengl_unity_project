@@ -121,8 +121,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BaseObject.cpp" />
+    <ClCompile Include="Block.cpp" />
+    <ClCompile Include="Block_type.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="control.cpp" />
+    <ClCompile Include="Gamemanager.cpp" />
     <ClCompile Include="Input_check.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="object.cpp" />
@@ -135,8 +138,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseObject.h" />
+    <ClInclude Include="Block.h" />
+    <ClInclude Include="Block_type.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="control.h" />
+    <ClInclude Include="Gamemanager.h" />
     <ClInclude Include="Input_check.h" />
     <ClInclude Include="linmath.h" />
     <ClInclude Include="object.h" />

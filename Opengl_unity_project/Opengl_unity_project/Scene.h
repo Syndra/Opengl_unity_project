@@ -8,6 +8,7 @@
 
 class BaseObject;
 class Tetris_block;
+class Block;
 class Timer;
 
 class Scene
@@ -28,7 +29,8 @@ public:
 
 	//All objects in this scene.
 	std::vector<BaseObject*> object_in_scene;
-	std::vector<Tetris_block*> object_render;
+	std::vector<Block*> object_render;
+	//std::vector<Tetris_block*> object_render;
 
 	Scene(GLFWwindow *window);
 	~Scene();
