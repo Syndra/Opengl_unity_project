@@ -10,11 +10,15 @@ public:
 
 	static const GLint vertex_num = 9;
 	static const GLint cube_num = 108;
+	static const GLint floor_num = 18;
 
 	static GLfloat cube_color_data[108];
 	static GLfloat textureCoordinate[6];
 	static GLfloat tri_data[9];
 	static GLfloat cube_data[108];
 	static GLfloat color[9];
+
+	static GLfloat floor[18];
+	static GLfloat floor_color[18];
 };
 

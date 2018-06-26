@@ -14,7 +14,8 @@ public:
 
 	GLfloat speed = 5.f;
 
-	glm::vec3 position = glm::vec3(0,0,0);
+	glm::vec3 position = glm::vec3(0,10,0);
+	int block_type;
 
 	std::vector <Tetris_block *> block;
 

@@ -38,6 +38,7 @@ public:
 	//render method.
 	void render(Camera *camera);
 	void set_mesh();
+	void set_mesh_floor();
 	void update();
 };
 

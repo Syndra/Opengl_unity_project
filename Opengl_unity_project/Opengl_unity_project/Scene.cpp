@@ -7,14 +7,15 @@ Scene::Scene(GLFWwindow *window)
 {
 	this->init_scene(window);
 
+	gamemanager = new Gamemanager();
+
 	//Generate object. set mesh.
-	//Tetris_block *block = new Tetris_block();
-	Block *block = new Block();
-	block->set_mesh();
+	//Block *block = new Block();
+	//block->set_mesh();
 
 	//Push objects to vector.
-	object_in_scene.push_back(block);
-	object_render.push_back(block);
+	//object_in_scene.push_back(block);
+	//object_render.push_back(block);
 
 	//render all objects in windows.
 	render_scene();
@@ -52,12 +53,20 @@ void Scene::render_scene()
 		//glClearColor(1, 0, 1, 1);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+		//for camera move.
 		Input_check::input_check(object_in_scene);
 
-		for (int it = 0; it < this->object_render.size(); it++)
-			this->object_render.at(it)->render(this->camera_in_scene);
-
 		timer->tick();
+		gamemanager->run();
+
+		gamemanager->focused_block->update();
+		gamemanager->focused_block->render(this->camera_in_scene);
+
+		for (int it = 0; it < gamemanager->block_in_game.size(); it++)
+		{
+			gamemanager->block_in_game.at(it)->render(this->camera_in_scene);
+		}
+
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	}

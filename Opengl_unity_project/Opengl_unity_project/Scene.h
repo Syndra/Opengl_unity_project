@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Input_check.h"
 #include "Vertex_data.h"
+#include "Gamemanager.h"
 #include <iostream>
 #include <vector>
 
@@ -26,6 +27,9 @@ public:
 
 	//Timer
 	Timer *timer;
+
+	//Gamemanager
+	Gamemanager *gamemanager;
 
 	//All objects in this scene.
 	std::vector<BaseObject*> object_in_scene;

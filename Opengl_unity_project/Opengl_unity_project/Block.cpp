@@ -10,13 +10,13 @@
 Block::Block()
 {
 	std::srand(std::time(nullptr));
-
-	glm::vec3* type = Block_type::type[std::rand()%5];
+	block_type = std::rand() % 5;
+	glm::vec3 *type = Block_type::type[block_type];
 	for (int loop = 0 ; loop < 4; loop ++) 
 	{
 		Tetris_block *base = new Tetris_block();
 		base->set_mesh();
-		base->position += type[loop];
+		base->position += type[loop] + position;
 		block.push_back(base);
 	}
 }
@@ -41,17 +41,16 @@ void Block::render(Camera * camera)
 
 void Block::update()
 {
-	if (!isdead) {
-		this->position.y -= Timer::deltatime * speed;
-		this->position_update();
-	}
+	this->position_update();
 }
 
 void Block::position_update()
 {
+	int i = 0;
 	for (Tetris_block *elem : block)
 	{
-		elem->position += position;
+		elem->position = Block_type::type[block_type][i] + position;
+		i++;
 	}
-	position = glm::vec3(0,0,0);
 }
+

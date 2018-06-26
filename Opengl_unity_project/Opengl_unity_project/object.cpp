@@ -65,6 +65,35 @@ void object::set_mesh()
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0 );
 }
 
+void object::set_mesh_floor()
+{
+	//Should be set by parameter like String "triangle" or "sphere".
+	//Set upon input mesh type value.
+
+	//set model data(mesh).
+	position_data = Vertex_data::floor;
+	color_data = Vertex_data::floor_color;
+	vertex_num = Vertex_data::floor_num;
+
+	//Init VAO
+	glGenVertexArrays(1, &this->VAO);
+	glBindVertexArray(this->VAO);
+
+	//Set buffer by model data.
+	glGenBuffers(1, &this->VBO_position);
+	glBindBuffer(GL_ARRAY_BUFFER, this->VBO_position);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * vertex_num, position_data, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+
+
+	glGenBuffers(1, &this->VBO_color);
+	glBindBuffer(GL_ARRAY_BUFFER, this->VBO_color);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * vertex_num, color_data, GL_STATIC_DRAW);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+}
+
 void object::update()
 {
 

@@ -92,6 +92,26 @@ GLfloat Vertex_data::cube_color_data[] = {
 	0.982f,  0.099f,  0.879f,
 };
 
+GLfloat Vertex_data::floor[18] = 
+{
+	0.0f, 0.0f, 0.0f,
+	1.0f, 0.0f, 0.0f,
+	0.0f, 1.0f, 0.0f,
+	1.0f, 1.0f, 0.0f,
+	1.0f, 0.0f, 0.0f,
+	0.0f, 1.0f, 0.0f,
+};
+
+GLfloat Vertex_data::floor_color[18] =
+{
+	1.0f, 1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f,
+};
+
 Vertex_data::Vertex_data()
 {
 }
