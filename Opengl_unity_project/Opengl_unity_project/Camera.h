@@ -3,16 +3,18 @@
 #include <GLFW\glfw3.h>
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
-#include "BaseObject.h"
 
-class Camera : public BaseObject
+class CameraTransform;
+class CameraUpdatable;
+class ABCD;
+
+class Camera
 {
-public:
+public:	
+	//Components
+	CameraTransform *transform;
+	CameraUpdatable *updatable;
 
-	//basic properties.
-	
-	//transform properties.
-	glm::vec3 position;
 	glm::vec3 lookat;
 
 	GLfloat fovy;
@@ -29,7 +31,6 @@ public:
 	~Camera();
 	glm::mat4 get_projection_matrix();
 	glm::mat4 get_view_matrix();
-
-	void update();
+	//void update();
 };
 

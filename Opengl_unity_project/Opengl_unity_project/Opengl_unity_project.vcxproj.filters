@@ -13,168 +13,252 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Object">
-      <UniqueIdentifier>{48b12c2d-209c-4521-853d-4b1b8104c710}</UniqueIdentifier>
+    <Filter Include="헤더 파일\Engine">
+      <UniqueIdentifier>{93db3447-946b-47ea-bc4c-c9b83b7630d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Window">
-      <UniqueIdentifier>{f3eb553e-89e2-4958-b438-59e4af78cd37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Window\Scene">
-      <UniqueIdentifier>{d7139dba-365e-4d02-9978-818a9a913e7e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Controller">
-      <UniqueIdentifier>{8cc5dacb-217b-4160-88b1-374d13271134}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Shader">
-      <UniqueIdentifier>{6fef3ad9-0dbd-4c35-86d4-1185c625ecf5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Sprite">
-      <UniqueIdentifier>{70982fd1-c6b5-4370-9f40-183b630ad57b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Object\Camera">
-      <UniqueIdentifier>{c53876a8-81f4-4eb1-882d-15b93a9b0e2a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Controller">
+    <Filter Include="헤더 파일\Engine\Controller">
       <UniqueIdentifier>{44c3eb99-6f87-4789-8f33-e65b7bc3ad98}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Lib">
+    <Filter Include="헤더 파일\Engine\Lib">
       <UniqueIdentifier>{6b4ef1f6-58ee-4c2e-8b8c-f03da8afa488}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Object">
+    <Filter Include="헤더 파일\Engine\Object">
       <UniqueIdentifier>{82abc370-ac76-4dd7-8de2-fcf8e40db093}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Shader">
-      <UniqueIdentifier>{6f6901c5-e2f0-40a3-ac73-b50e6fe2c929}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Sprite">
+    <Filter Include="헤더 파일\Engine\Sprite">
       <UniqueIdentifier>{42c21832-bc49-458b-8ada-04bf56cccc9d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Window">
+    <Filter Include="헤더 파일\Engine\Window">
       <UniqueIdentifier>{4441c7d4-38e2-4e56-a142-fe8fda3a8472}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Object\Camera">
-      <UniqueIdentifier>{90eded81-0c3b-4083-8521-fe578b37fcb5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Window\Scene">
+    <Filter Include="헤더 파일\Engine\Window\Scene">
       <UniqueIdentifier>{d46eafbf-97a3-443d-bbb1-7dd17e8c6082}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Object\Gameobject">
-      <UniqueIdentifier>{03b2bce2-5456-4d89-97dc-710e039d8783}</UniqueIdentifier>
+    <Filter Include="소스 파일\Engine">
+      <UniqueIdentifier>{b8c2d9e2-4a0c-47a9-9e80-c78b17b8b8e0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Object\Gameobject">
-      <UniqueIdentifier>{5c5553a4-c8b0-42d0-ad8e-b112919cd511}</UniqueIdentifier>
+    <Filter Include="소스 파일\Engine\Controller">
+      <UniqueIdentifier>{8cc5dacb-217b-4160-88b1-374d13271134}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Timer">
+    <Filter Include="소스 파일\Engine\Object">
+      <UniqueIdentifier>{48b12c2d-209c-4521-853d-4b1b8104c710}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Sprite">
+      <UniqueIdentifier>{70982fd1-c6b5-4370-9f40-183b630ad57b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Window">
+      <UniqueIdentifier>{f3eb553e-89e2-4958-b438-59e4af78cd37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Window\Scene">
+      <UniqueIdentifier>{d7139dba-365e-4d02-9978-818a9a913e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component">
+      <UniqueIdentifier>{845778e3-2494-4b78-87a9-24d0b1c57966}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Renderer">
+      <UniqueIdentifier>{be22d14b-47f3-423e-bf50-f051dc330fa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Transform">
+      <UniqueIdentifier>{80bafb07-e417-485f-b6a6-cfec68afdd99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Updatable">
+      <UniqueIdentifier>{d0a9481a-3be5-45db-9000-3e702548e22a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Camera">
+      <UniqueIdentifier>{c53876a8-81f4-4eb1-882d-15b93a9b0e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SystemLayer">
+      <UniqueIdentifier>{dff6dbe5-9609-42d8-aeaf-fb18db0d3228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SystemLayer\Shader">
+      <UniqueIdentifier>{6fef3ad9-0dbd-4c35-86d4-1185c625ecf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SystemLayer\Timer">
       <UniqueIdentifier>{67cf6817-4ad2-4da4-a03a-0eece0c08fa4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Timer">
+    <Filter Include="소스 파일\Engine\Gameobject">
+      <UniqueIdentifier>{03b2bce2-5456-4d89-97dc-710e039d8783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Camera">
+      <UniqueIdentifier>{90eded81-0c3b-4083-8521-fe578b37fcb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Gameobject">
+      <UniqueIdentifier>{5c5553a4-c8b0-42d0-ad8e-b112919cd511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component">
+      <UniqueIdentifier>{8b0c4a35-885d-40ef-87e5-5dfe5ab51e5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Renderer">
+      <UniqueIdentifier>{6ea9baf2-84c9-477d-85be-c78b3b892b52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Transform">
+      <UniqueIdentifier>{d6b8a3b6-9fbc-4c0c-b22a-eb649a4d9ff2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Updatable">
+      <UniqueIdentifier>{58c9d2e2-7af5-4d8c-a64a-def26dd633c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SystemLayer">
+      <UniqueIdentifier>{4b0b6790-9777-4512-a99d-8e7bcf2f25b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SystemLayer\Shader">
+      <UniqueIdentifier>{6f6901c5-e2f0-40a3-ac73-b50e6fe2c929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SystemLayer\Timer">
       <UniqueIdentifier>{46987c99-b473-49fe-b4f5-8e250b495552}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Object\Gameobject\Block">
+    <Filter Include="소스 파일\UserTier">
+      <UniqueIdentifier>{7e251cf5-7569-4622-88fa-3e44685cf06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UserTier\Block">
       <UniqueIdentifier>{5085dc04-cff2-4b8e-8c65-355e2e153e68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Object\Gameobject\Block">
+    <Filter Include="소스 파일\UserTier\Gamemanager">
+      <UniqueIdentifier>{ba5fe306-c1f7-4069-9aeb-4f7f6ab2a033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UserTier">
+      <UniqueIdentifier>{176c03fe-b497-4182-bd65-bee183511cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UserTier\Block">
       <UniqueIdentifier>{07e5221c-2bbf-4d5b-b634-50670fc73c0c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Window\Gamemanager">
+    <Filter Include="헤더 파일\UserTier\Gamemanager">
       <UniqueIdentifier>{cb9ae2f3-f41a-4b4a-89e6-7695693096e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\Window\Gamemanager">
-      <UniqueIdentifier>{ba5fe306-c1f7-4069-9aeb-4f7f6ab2a033}</UniqueIdentifier>
+    <Filter Include="헤더 파일\UserTier\Scene">
+      <UniqueIdentifier>{f278eab9-5ad3-4171-9757-07ac95db68a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UserTier\Scene">
+      <UniqueIdentifier>{bdabccba-4d5d-44da-a8bd-70c5125139ad}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>소스 파일\Object\Camera</Filter>
+      <Filter>소스 파일\Engine\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>소스 파일\Window\Scene</Filter>
+      <Filter>소스 파일\Engine\Window\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Window.cpp">
-      <Filter>소스 파일\Window</Filter>
+      <Filter>소스 파일\Engine\Window</Filter>
     </ClCompile>
     <ClCompile Include="control.cpp">
-      <Filter>소스 파일\Controller</Filter>
+      <Filter>소스 파일\Engine\Controller</Filter>
     </ClCompile>
     <ClCompile Include="shader.cpp">
-      <Filter>소스 파일\Shader</Filter>
+      <Filter>소스 파일\Engine\SystemLayer\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Vertex_data.cpp">
-      <Filter>소스 파일\Sprite</Filter>
+      <Filter>소스 파일\Engine\Sprite</Filter>
     </ClCompile>
     <ClCompile Include="Input_check.cpp">
-      <Filter>소스 파일\Controller</Filter>
+      <Filter>소스 파일\Engine\Controller</Filter>
     </ClCompile>
     <ClCompile Include="BaseObject.cpp">
-      <Filter>소스 파일\Object</Filter>
+      <Filter>소스 파일\Engine\Object</Filter>
     </ClCompile>
     <ClCompile Include="object.cpp">
-      <Filter>소스 파일\Object\Gameobject</Filter>
+      <Filter>소스 파일\Engine\Gameobject</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>소스 파일\Timer</Filter>
+      <Filter>소스 파일\Engine\SystemLayer\Timer</Filter>
     </ClCompile>
     <ClCompile Include="Tetris_block.cpp">
-      <Filter>소스 파일\Object\Gameobject\Block</Filter>
+      <Filter>소스 파일\UserTier\Block</Filter>
     </ClCompile>
     <ClCompile Include="Gamemanager.cpp">
-      <Filter>소스 파일\Window\Gamemanager</Filter>
+      <Filter>소스 파일\UserTier\Gamemanager</Filter>
     </ClCompile>
     <ClCompile Include="Block.cpp">
-      <Filter>소스 파일\Object\Gameobject\Block</Filter>
+      <Filter>소스 파일\UserTier\Block</Filter>
     </ClCompile>
     <ClCompile Include="Block_type.cpp">
-      <Filter>소스 파일\Object\Gameobject\Block</Filter>
+      <Filter>소스 파일\UserTier\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>소스 파일\Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Updatable.cpp">
+      <Filter>소스 파일\Engine\Component\Updatable</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>소스 파일\Engine\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameobject.cpp">
+      <Filter>소스 파일\Engine\Gameobject</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일\UserTier</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraTransform.cpp">
+      <Filter>소스 파일\Engine\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraUpdatable.cpp">
+      <Filter>소스 파일\Engine\Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
-      <Filter>헤더 파일\Object\Camera</Filter>
+      <Filter>헤더 파일\Engine\Camera</Filter>
     </ClInclude>
     <ClInclude Include="control.h">
-      <Filter>헤더 파일\Controller</Filter>
+      <Filter>헤더 파일\Engine\Controller</Filter>
     </ClInclude>
     <ClInclude Include="linmath.h">
-      <Filter>헤더 파일\Lib</Filter>
+      <Filter>헤더 파일\Engine\Lib</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
-      <Filter>헤더 파일\Window\Scene</Filter>
+      <Filter>헤더 파일\Engine\Window\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>헤더 파일\Shader</Filter>
+      <Filter>헤더 파일\Engine\SystemLayer\Shader</Filter>
     </ClInclude>
     <ClInclude Include="Vertex_data.h">
-      <Filter>헤더 파일\Sprite</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>헤더 파일\Window</Filter>
+      <Filter>헤더 파일\Engine\Sprite</Filter>
     </ClInclude>
     <ClInclude Include="Input_check.h">
-      <Filter>헤더 파일\Controller</Filter>
+      <Filter>헤더 파일\Engine\Controller</Filter>
     </ClInclude>
     <ClInclude Include="object.h">
-      <Filter>헤더 파일\Object\Gameobject</Filter>
+      <Filter>헤더 파일\Engine\Gameobject</Filter>
     </ClInclude>
     <ClInclude Include="BaseObject.h">
-      <Filter>헤더 파일\Object</Filter>
+      <Filter>헤더 파일\Engine\Object</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>헤더 파일\Timer</Filter>
+      <Filter>헤더 파일\Engine\SystemLayer\Timer</Filter>
     </ClInclude>
     <ClInclude Include="Tetris_block.h">
-      <Filter>헤더 파일\Object\Gameobject\Block</Filter>
+      <Filter>헤더 파일\UserTier\Block</Filter>
     </ClInclude>
     <ClInclude Include="Gamemanager.h">
-      <Filter>헤더 파일\Window\Gamemanager</Filter>
+      <Filter>헤더 파일\UserTier\Gamemanager</Filter>
     </ClInclude>
     <ClInclude Include="Block.h">
-      <Filter>헤더 파일\Object\Gameobject\Block</Filter>
+      <Filter>헤더 파일\UserTier\Block</Filter>
     </ClInclude>
     <ClInclude Include="Block_type.h">
-      <Filter>헤더 파일\Object\Gameobject\Block</Filter>
+      <Filter>헤더 파일\UserTier\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>헤더 파일\Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Updatable.h">
+      <Filter>헤더 파일\Engine\Component\Updatable</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>헤더 파일\Engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>헤더 파일\Engine\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameobject.h">
+      <Filter>헤더 파일\Engine\Gameobject</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraTransform.h">
+      <Filter>헤더 파일\Engine\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraUpdatable.h">
+      <Filter>헤더 파일\Engine\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -11,10 +11,16 @@ class BaseObject;
 class Tetris_block;
 class Block;
 class Timer;
+class Renderer;
+class Updatable;
 
 class Scene
 {
 public:
+
+	//Render&update vector.
+	static std::vector<Renderer*> renderer;
+	static std::vector<Updatable*> updatable;
 
 	//Window properties.
 	GLFWwindow * window;
@@ -36,10 +42,11 @@ public:
 	std::vector<Block*> object_render;
 	//std::vector<Tetris_block*> object_render;
 
-	Scene(GLFWwindow *window);
+	Scene();
+	Scene(Gamemanager * gamemanager);
 	~Scene();
 
-	void init_scene(GLFWwindow *window);
-	void render_scene();
+	void init_scene();
+	void start_scene();
 };
 

@@ -11,6 +11,6 @@ public:
 	Input_check();
 	~Input_check();
 
-	static void input_check(std::vector <BaseObject *> baseobjects);
+	//static void input_check(std::vector <BaseObject *> baseobjects);
 };
 
