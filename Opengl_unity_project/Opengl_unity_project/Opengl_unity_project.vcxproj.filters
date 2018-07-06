@@ -112,19 +112,10 @@
     <Filter Include="헤더 파일\UserTier\Gamemanager">
       <UniqueIdentifier>{cb9ae2f3-f41a-4b4a-89e6-7695693096e4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\UserTier\Scene">
-      <UniqueIdentifier>{f278eab9-5ad3-4171-9757-07ac95db68a2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\UserTier\Scene">
-      <UniqueIdentifier>{bdabccba-4d5d-44da-a8bd-70c5125139ad}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
       <Filter>소스 파일\Engine\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>소스 파일\Engine\Window\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Window.cpp">
       <Filter>소스 파일\Engine\Window</Filter>
@@ -137,15 +128,6 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>소스 파일\Engine\SystemLayer\Timer</Filter>
-    </ClCompile>
-    <ClCompile Include="Tetris_block.cpp">
-      <Filter>소스 파일\UserTier\Block</Filter>
-    </ClCompile>
-    <ClCompile Include="Block.cpp">
-      <Filter>소스 파일\UserTier\Block</Filter>
-    </ClCompile>
-    <ClCompile Include="Block_type.cpp">
-      <Filter>소스 파일\UserTier\Block</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>소스 파일\Engine\Component\Renderer</Filter>
@@ -174,8 +156,8 @@
     <ClCompile Include="MyObject.cpp">
       <Filter>소스 파일\UserTier\Block</Filter>
     </ClCompile>
-    <ClCompile Include="MyScene.cpp">
-      <Filter>소스 파일\UserTier\Scene</Filter>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\Engine\Window\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -196,15 +178,6 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>헤더 파일\Engine\SystemLayer\Timer</Filter>
-    </ClInclude>
-    <ClInclude Include="Tetris_block.h">
-      <Filter>헤더 파일\UserTier\Block</Filter>
-    </ClInclude>
-    <ClInclude Include="Block.h">
-      <Filter>헤더 파일\UserTier\Block</Filter>
-    </ClInclude>
-    <ClInclude Include="Block_type.h">
-      <Filter>헤더 파일\UserTier\Block</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>헤더 파일\Engine\Component\Renderer</Filter>
@@ -232,9 +205,6 @@
     </ClInclude>
     <ClInclude Include="MyObject.h">
       <Filter>헤더 파일\UserTier\Block</Filter>
-    </ClInclude>
-    <ClInclude Include="MyScene.h">
-      <Filter>헤더 파일\UserTier\Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -5,6 +5,7 @@
 class Timer;
 class Renderer;
 class Updatable;
+class myGamemanager;
 
 class Scene
 {
@@ -15,12 +16,13 @@ public:
 	static std::vector<Updatable*> updatable;
 
 	//Camera object.
-	Camera *camera_in_scene;
+	static Camera *camera_in_scene;
 
 	//Timer
 	Timer *timer;
 
 	//Gamemanager
+	myGamemanager *gamemanager;
 
 	Scene();
 	~Scene();

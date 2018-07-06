@@ -4,16 +4,15 @@
 #include "Renderer.h"
 #include "Updatable.h"
 #include "MyObject.h"
+#include "myGamemanager.h"
 
 std::vector<Renderer*> Scene::renderer;
 std::vector<Updatable*> Scene::updatable;
+Camera *Scene::camera_in_scene;
 
 Scene::Scene()
 {
 	this->init_scene();
-	MyObject *cube = new MyObject();
-	MyObject *cube1 = new MyObject();
-	MyObject *cube2 = new MyObject();
 	this->start_scene();
 }
 
@@ -33,6 +32,8 @@ void Scene::init_scene()
 
 	timer = new Timer();
 	camera_in_scene = new Camera();
+
+	gamemanager = new myGamemanager();
 }
 
 void Scene::start_scene()
@@ -43,7 +44,9 @@ void Scene::start_scene()
 	{
 		//set default background color.
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glClearColor(0.3f, 0.4f, 0.1f, 0.5f);
+
+		gamemanager->run();
+
 		timer->tick();
 
 		for (int it = 0; it < Scene::renderer.size(); it++)

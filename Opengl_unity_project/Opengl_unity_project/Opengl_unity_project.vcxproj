@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{46E77581-CBF7-4F2F-A1A0-918B2599D994}</ProjectGuid>
     <RootNamespace>Openglunityproject</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -120,8 +120,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Block.cpp" />
-    <ClCompile Include="Block_type.cpp" />
     <ClCompile Include="CameraUpdatable.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraTransform.cpp" />
@@ -129,11 +127,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="myGamemanager.cpp" />
     <ClCompile Include="MyObject.cpp" />
-    <ClCompile Include="MyScene.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shader.cpp" />
-    <ClCompile Include="Tetris_block.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Updatable.cpp" />
@@ -141,8 +137,6 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Block.h" />
-    <ClInclude Include="Block_type.h" />
     <ClInclude Include="CameraUpdatable.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraTransform.h" />
@@ -150,11 +144,9 @@
     <ClInclude Include="linmath.h" />
     <ClInclude Include="myGamemanager.h" />
     <ClInclude Include="MyObject.h" />
-    <ClInclude Include="MyScene.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="Tetris_block.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Updatable.h" />

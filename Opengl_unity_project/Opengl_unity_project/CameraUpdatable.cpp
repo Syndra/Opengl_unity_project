@@ -56,8 +56,17 @@ void CameraUpdatable::update()
 	if (glfwGetKey(Window::window, GLFW_KEY_LEFT) == GLFW_PRESS) {
 		this->transform->position -= right * Timer::deltatime * speed;
 	}
-
-	transform->lookat = transform->position + direction;
+	if (glfwGetKey(Window::window, GLFW_KEY_EQUAL) == GLFW_PRESS) {
+		this->transform->fovy -= Timer::deltatime * speed;
+	}
+	if (glfwGetKey(Window::window, GLFW_KEY_MINUS) == GLFW_PRESS) {
+		this->transform->fovy += Timer::deltatime * speed;
+	}
+	std::system("cls");
+	this->transform->lookat = this->transform->position + direction;
+	std::cout << "x : " << this->transform->position.x << "\n"
+		<< "y : " << this->transform->position.y << "\n"
+		<< "z : " << this->transform->position.z << "\n";
 }
 
 void CameraUpdatable::start()
