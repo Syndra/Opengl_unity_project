@@ -5,7 +5,7 @@ public:
 	Updatable();
 	~Updatable();
 
-	void update();
+	virtual void update();
 	void start();
 };
 

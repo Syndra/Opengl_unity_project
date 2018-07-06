@@ -16,14 +16,8 @@
     <Filter Include="헤더 파일\Engine">
       <UniqueIdentifier>{93db3447-946b-47ea-bc4c-c9b83b7630d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일\Engine\Controller">
-      <UniqueIdentifier>{44c3eb99-6f87-4789-8f33-e65b7bc3ad98}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일\Engine\Lib">
       <UniqueIdentifier>{6b4ef1f6-58ee-4c2e-8b8c-f03da8afa488}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Engine\Object">
-      <UniqueIdentifier>{82abc370-ac76-4dd7-8de2-fcf8e40db093}</UniqueIdentifier>
     </Filter>
     <Filter Include="헤더 파일\Engine\Sprite">
       <UniqueIdentifier>{42c21832-bc49-458b-8ada-04bf56cccc9d}</UniqueIdentifier>
@@ -36,12 +30,6 @@
     </Filter>
     <Filter Include="소스 파일\Engine">
       <UniqueIdentifier>{b8c2d9e2-4a0c-47a9-9e80-c78b17b8b8e0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Engine\Controller">
-      <UniqueIdentifier>{8cc5dacb-217b-4160-88b1-374d13271134}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="소스 파일\Engine\Object">
-      <UniqueIdentifier>{48b12c2d-209c-4521-853d-4b1b8104c710}</UniqueIdentifier>
     </Filter>
     <Filter Include="소스 파일\Engine\Sprite">
       <UniqueIdentifier>{70982fd1-c6b5-4370-9f40-183b630ad57b}</UniqueIdentifier>
@@ -141,32 +129,17 @@
     <ClCompile Include="Window.cpp">
       <Filter>소스 파일\Engine\Window</Filter>
     </ClCompile>
-    <ClCompile Include="control.cpp">
-      <Filter>소스 파일\Engine\Controller</Filter>
-    </ClCompile>
     <ClCompile Include="shader.cpp">
       <Filter>소스 파일\Engine\SystemLayer\Shader</Filter>
     </ClCompile>
     <ClCompile Include="Vertex_data.cpp">
       <Filter>소스 파일\Engine\Sprite</Filter>
     </ClCompile>
-    <ClCompile Include="Input_check.cpp">
-      <Filter>소스 파일\Engine\Controller</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseObject.cpp">
-      <Filter>소스 파일\Engine\Object</Filter>
-    </ClCompile>
-    <ClCompile Include="object.cpp">
-      <Filter>소스 파일\Engine\Gameobject</Filter>
-    </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>소스 파일\Engine\SystemLayer\Timer</Filter>
     </ClCompile>
     <ClCompile Include="Tetris_block.cpp">
       <Filter>소스 파일\UserTier\Block</Filter>
-    </ClCompile>
-    <ClCompile Include="Gamemanager.cpp">
-      <Filter>소스 파일\UserTier\Gamemanager</Filter>
     </ClCompile>
     <ClCompile Include="Block.cpp">
       <Filter>소스 파일\UserTier\Block</Filter>
@@ -195,13 +168,19 @@
     <ClCompile Include="CameraUpdatable.cpp">
       <Filter>소스 파일\Engine\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="myGamemanager.cpp">
+      <Filter>소스 파일\UserTier\Gamemanager</Filter>
+    </ClCompile>
+    <ClCompile Include="MyObject.cpp">
+      <Filter>소스 파일\UserTier\Block</Filter>
+    </ClCompile>
+    <ClCompile Include="MyScene.cpp">
+      <Filter>소스 파일\UserTier\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
       <Filter>헤더 파일\Engine\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="control.h">
-      <Filter>헤더 파일\Engine\Controller</Filter>
     </ClInclude>
     <ClInclude Include="linmath.h">
       <Filter>헤더 파일\Engine\Lib</Filter>
@@ -215,23 +194,11 @@
     <ClInclude Include="Vertex_data.h">
       <Filter>헤더 파일\Engine\Sprite</Filter>
     </ClInclude>
-    <ClInclude Include="Input_check.h">
-      <Filter>헤더 파일\Engine\Controller</Filter>
-    </ClInclude>
-    <ClInclude Include="object.h">
-      <Filter>헤더 파일\Engine\Gameobject</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseObject.h">
-      <Filter>헤더 파일\Engine\Object</Filter>
-    </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>헤더 파일\Engine\SystemLayer\Timer</Filter>
     </ClInclude>
     <ClInclude Include="Tetris_block.h">
       <Filter>헤더 파일\UserTier\Block</Filter>
-    </ClInclude>
-    <ClInclude Include="Gamemanager.h">
-      <Filter>헤더 파일\UserTier\Gamemanager</Filter>
     </ClInclude>
     <ClInclude Include="Block.h">
       <Filter>헤더 파일\UserTier\Block</Filter>
@@ -260,12 +227,21 @@
     <ClInclude Include="CameraUpdatable.h">
       <Filter>헤더 파일\Engine\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="myGamemanager.h">
+      <Filter>헤더 파일\UserTier\Gamemanager</Filter>
+    </ClInclude>
+    <ClInclude Include="MyObject.h">
+      <Filter>헤더 파일\UserTier\Block</Filter>
+    </ClInclude>
+    <ClInclude Include="MyScene.h">
+      <Filter>헤더 파일\UserTier\Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\openGL_test\openGL_test\SimpleFragmentShader.txt">
+    <Text Include="SimpleFragmentShader.txt">
       <Filter>리소스 파일</Filter>
     </Text>
-    <Text Include="..\..\openGL_test\openGL_test\SimpleVertexShader.txt">
+    <Text Include="SimpleVertexShader.txt">
       <Filter>리소스 파일</Filter>
     </Text>
   </ItemGroup>

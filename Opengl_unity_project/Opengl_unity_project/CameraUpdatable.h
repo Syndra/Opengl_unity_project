@@ -13,5 +13,6 @@ public:
 	CameraUpdatable(CameraTransform *transform);
 	~CameraUpdatable();
 	void update();
+	void start();
 };
 

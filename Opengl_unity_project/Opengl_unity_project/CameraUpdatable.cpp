@@ -1,5 +1,4 @@
 #include "CameraUpdatable.h"
-#include "Camera.h"
 #include "Window.h"
 #include "CameraTransform.h"
 #include "Timer.h"
@@ -59,4 +58,8 @@ void CameraUpdatable::update()
 	}
 
 	transform->lookat = transform->position + direction;
+}
+
+void CameraUpdatable::start()
+{
 }

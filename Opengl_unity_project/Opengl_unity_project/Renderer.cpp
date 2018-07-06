@@ -8,6 +8,7 @@ Renderer::Renderer(Transform *transform)
 {
 	//default setting.
 	this->programID = Shader::LoadShaders("SimpleVertexShader.txt", "SimpleFragmentShader.txt");
+	this->transform = transform;
 	set_mesh();
 }
 

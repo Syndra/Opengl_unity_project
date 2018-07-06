@@ -5,6 +5,7 @@
 #include <iostream>
 
 class Scene;
+class MyScene;
 
 class Window
 {
@@ -12,6 +13,7 @@ public:
 
 	static GLFWwindow *window;
 	Scene *current_scene;
+	//MyScene *current_my_scene;
 
 	Window();
 	~Window();

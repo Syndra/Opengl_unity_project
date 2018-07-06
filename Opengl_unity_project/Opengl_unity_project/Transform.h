@@ -7,7 +7,7 @@ class Transform
 public:
 
 	glm::vec3 position;
-	float scale;
+	float scale = 1.f;
 
 	Transform(glm::vec3 position);
 	Transform();

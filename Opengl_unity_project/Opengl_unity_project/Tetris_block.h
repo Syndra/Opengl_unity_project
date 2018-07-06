@@ -2,11 +2,10 @@
 #include <gl\glew.h>
 #include <GLFW\glfw3.h>
 #include <glm\glm.hpp>
-#include "BaseObject.h"
 
 class Camera;
 
-class Tetris_block : public BaseObject
+class Tetris_block
 {
 public:
 

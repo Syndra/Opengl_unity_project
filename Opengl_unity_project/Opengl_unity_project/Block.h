@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include "Tetris_block.h"
-#include "BaseObject.h"
 #include <glm\glm.hpp>
 
 class Camera;

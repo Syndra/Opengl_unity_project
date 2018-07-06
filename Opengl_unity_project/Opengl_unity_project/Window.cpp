@@ -1,6 +1,6 @@
 #include "Window.h"
 #include "Scene.h"
-
+#include "MyScene.h"
 
 GLFWwindow* Window::window;
 
@@ -50,6 +50,7 @@ bool Window::init_glew()
 
 void Window::load_scene()
 {
-	current_scene = new Scene(window);
+	current_scene = new Scene();
+	//current_my_scene = new MyScene();
 }
 

@@ -120,18 +120,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="Block_type.cpp" />
     <ClCompile Include="CameraUpdatable.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraTransform.cpp" />
-    <ClCompile Include="control.cpp" />
-    <ClCompile Include="Gamemanager.cpp" />
     <ClCompile Include="Gameobject.cpp" />
-    <ClCompile Include="Input_check.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="object.cpp" />
+    <ClCompile Include="myGamemanager.cpp" />
+    <ClCompile Include="MyObject.cpp" />
+    <ClCompile Include="MyScene.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shader.cpp" />
@@ -143,18 +141,16 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Block.h" />
     <ClInclude Include="Block_type.h" />
     <ClInclude Include="CameraUpdatable.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraTransform.h" />
-    <ClInclude Include="control.h" />
-    <ClInclude Include="Gamemanager.h" />
     <ClInclude Include="Gameobject.h" />
-    <ClInclude Include="Input_check.h" />
     <ClInclude Include="linmath.h" />
-    <ClInclude Include="object.h" />
+    <ClInclude Include="myGamemanager.h" />
+    <ClInclude Include="MyObject.h" />
+    <ClInclude Include="MyScene.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
@@ -166,8 +162,8 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\openGL_test\openGL_test\SimpleFragmentShader.txt" />
-    <Text Include="..\..\openGL_test\openGL_test\SimpleVertexShader.txt" />
+    <Text Include="SimpleFragmentShader.txt" />
+    <Text Include="SimpleVertexShader.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
