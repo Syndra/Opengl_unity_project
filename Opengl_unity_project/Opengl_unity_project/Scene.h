@@ -15,15 +15,13 @@ public:
 	//Render&update vector.
 	static std::vector<Renderer*> renderer;
 	static std::vector<Updatable*> updatable;
+	static std::vector<Light*> light;
 
 	//Camera object.
 	static Camera *camera_in_scene;
 
 	//Timer
 	Timer *timer;
-
-	//Light
-	//Light *light;
 
 	//Gamemanager
 	myGamemanager *gamemanager;

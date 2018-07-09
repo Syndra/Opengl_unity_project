@@ -6,9 +6,11 @@
 #include "MyObject.h"
 #include "myGamemanager.h"
 #include "Light.h"
+#include "Shader.h"
 
 std::vector<Renderer*> Scene::renderer;
 std::vector<Updatable*> Scene::updatable;
+std::vector<Light*> Scene::light;
 Camera *Scene::camera_in_scene;
 
 Scene::Scene()
@@ -30,14 +32,14 @@ void Scene::init_scene()
 
 	Scene::renderer = std::vector<Renderer*>();
 	Scene::updatable = std::vector<Updatable*>();
+	Scene::light = std::vector<Light*>();
 
 	timer = new Timer();
 	camera_in_scene = new Camera();
+	
+	Shader::init_all_shaders();
 
 	gamemanager = new myGamemanager();
-
-	/*light = new Light();
-	light->init_light();*/
 }
 
 void Scene::start_scene()
@@ -53,6 +55,11 @@ void Scene::start_scene()
 		gamemanager->run();
 
 		timer->tick();
+
+		for (int it = 0; it < Scene::light.size(); it++)
+		{
+			Scene::light.at(it)->refresh();
+		}
 
 		for (int it = 0; it < Scene::renderer.size(); it++)
 		{

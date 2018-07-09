@@ -9,7 +9,13 @@ class Shader
 {
 public:
 
+	static GLuint NoLightShader;
+	static GLuint BasicLightShader;
+
 	static GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
+	
+	static void init_all_shaders();
+
 	Shader();
 	~Shader();
 };

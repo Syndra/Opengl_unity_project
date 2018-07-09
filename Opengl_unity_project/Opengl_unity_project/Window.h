@@ -13,7 +13,6 @@ public:
 
 	static GLFWwindow *window;
 	Scene *current_scene;
-	//MyScene *current_my_scene;
 
 	Window();
 	~Window();

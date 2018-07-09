@@ -15,7 +15,7 @@ public:
 	Transform * transform;
 
 	//Shader
-	GLuint programID;
+	GLuint shader;
 
 	//VAO, VBO
 	GLuint VAO;

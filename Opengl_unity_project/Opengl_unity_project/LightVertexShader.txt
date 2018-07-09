@@ -15,6 +15,5 @@ void main(){
 gl_Position = MVP * vec4(position, 1);
 fragpos = vec3(Model * vec4(position , 1.0));
 pass_color = color;
-//normal = anormal;
 normal = mat3(transpose(inverse(Model))) * anormal; 
 }

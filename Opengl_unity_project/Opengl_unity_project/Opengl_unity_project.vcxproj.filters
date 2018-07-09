@@ -97,17 +97,11 @@
     <Filter Include="소스 파일\UserTier">
       <UniqueIdentifier>{7e251cf5-7569-4622-88fa-3e44685cf06a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\UserTier\Block">
-      <UniqueIdentifier>{5085dc04-cff2-4b8e-8c65-355e2e153e68}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\UserTier\Gamemanager">
       <UniqueIdentifier>{ba5fe306-c1f7-4069-9aeb-4f7f6ab2a033}</UniqueIdentifier>
     </Filter>
     <Filter Include="헤더 파일\UserTier">
       <UniqueIdentifier>{176c03fe-b497-4182-bd65-bee183511cd0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\UserTier\Block">
-      <UniqueIdentifier>{07e5221c-2bbf-4d5b-b634-50670fc73c0c}</UniqueIdentifier>
     </Filter>
     <Filter Include="헤더 파일\UserTier\Gamemanager">
       <UniqueIdentifier>{cb9ae2f3-f41a-4b4a-89e6-7695693096e4}</UniqueIdentifier>
@@ -126,6 +120,12 @@
     </Filter>
     <Filter Include="헤더 파일\Engine\Component\Light">
       <UniqueIdentifier>{faa2cea5-2615-473f-9109-b8e72c9acbb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UserTier\MyObject">
+      <UniqueIdentifier>{07e5221c-2bbf-4d5b-b634-50670fc73c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UserTier\MyObject">
+      <UniqueIdentifier>{5085dc04-cff2-4b8e-8c65-355e2e153e68}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +169,7 @@
       <Filter>소스 파일\UserTier\Gamemanager</Filter>
     </ClCompile>
     <ClCompile Include="MyObject.cpp">
-      <Filter>소스 파일\UserTier\Block</Filter>
+      <Filter>소스 파일\UserTier\MyObject</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>소스 파일\Engine\Window\Scene</Filter>
@@ -182,6 +182,9 @@
     </ClCompile>
     <ClCompile Include="Light.cpp">
       <Filter>소스 파일\Engine\Component\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLightSource.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -228,13 +231,16 @@
       <Filter>헤더 파일\UserTier\Gamemanager</Filter>
     </ClInclude>
     <ClInclude Include="MyObject.h">
-      <Filter>헤더 파일\UserTier\Block</Filter>
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
     </ClInclude>
     <ClInclude Include="MyobjectUpdatable.h">
       <Filter>헤더 파일\UserTier\Script</Filter>
     </ClInclude>
     <ClInclude Include="Light.h">
       <Filter>헤더 파일\Engine\Component\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLightSource.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

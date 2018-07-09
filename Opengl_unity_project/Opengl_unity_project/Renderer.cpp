@@ -8,8 +8,7 @@
 Renderer::Renderer(Transform *transform)
 {
 	//default setting.
-	//this->programID = Shader::LoadShaders("SimpleVertexShader.txt", "SimpleFragmentShader.txt");
-	this->programID = Shader::LoadShaders("LightVertexShader.txt", "LightFragmentShader.txt");
+	this->shader = Shader::BasicLightShader;
 	this->transform = transform;
 	set_mesh();
 }
@@ -17,20 +16,20 @@ Renderer::Renderer(Transform *transform)
 
 void Renderer::render(Camera * camera)
 {
-	//programID should be derived from higher class.
-	glUseProgram(programID);
+	//shader should be derived from higher class.
+	glUseProgram(shader);
 	glBindVertexArray(this->VAO);
 
 	glm::mat4 mvp = camera->get_projection_matrix() * camera->get_view_matrix() * compute_model_matrix();
 	glm::mat4 model = compute_model_matrix();
 
-	GLuint MatrixID = glGetUniformLocation(programID, "MVP");
+	GLuint MatrixID = glGetUniformLocation(shader, "MVP");
 	glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &mvp[0][0]);
 
-	GLuint MatrixID_M = glGetUniformLocation(programID, "Model");
+	GLuint MatrixID_M = glGetUniformLocation(shader, "Model");
 	glUniformMatrix4fv(MatrixID_M, 1, GL_FALSE, &model[0][0]);
 
-	GLuint cameraPos = glGetUniformLocation(programID, "viewpos");
+	GLuint cameraPos = glGetUniformLocation(shader, "viewpos");
 	glm::vec3 camerapos =  camera->transform->position;
 	glUniform3fv(cameraPos, 1, &camerapos[0]);
 
@@ -75,7 +74,7 @@ void Renderer::set_mesh()
 
 void Renderer::set_shader(char* V_shader, char* F_shader)
 {
-	this->programID = Shader::LoadShaders(V_shader, F_shader);
+	this->shader = Shader::LoadShaders(V_shader, F_shader);
 }
 
 glm::mat4 Renderer::compute_model_matrix()

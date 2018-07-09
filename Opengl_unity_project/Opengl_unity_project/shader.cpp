@@ -1,5 +1,7 @@
 #include "Shader.h"
 
+GLuint Shader::BasicLightShader;
+GLuint Shader::NoLightShader;
 
 GLuint Shader::LoadShaders(const char * vertex_file_path, const char * fragment_file_path) {
 
@@ -94,6 +96,12 @@ GLuint Shader::LoadShaders(const char * vertex_file_path, const char * fragment_
 	glDeleteShader(FragmentShaderID);
 
 	return ProgramID;
+}
+
+void Shader::init_all_shaders()
+{
+	Shader::NoLightShader = Shader::LoadShaders("SimpleVertexShader.txt","SimpleFragmentShader.txt");
+	Shader::BasicLightShader = Shader::LoadShaders("LightVertexShader.txt","LightFragmentShader.txt");
 }
 
 

@@ -35,6 +35,10 @@ GLfloat Vertex_data::cube_normals[] = {
 	-1.0f, 0.0f, 0.0f, // Left Side
 	-1.0f, 0.0f, 0.0f, // Left Side
 
+	-1.0f, 0.0f, 0.0f, // Left Side
+	-1.0f, 0.0f, 0.0f, // Left Side
+	-1.0f, 0.0f, 0.0f, // Left Side
+
 	0.0f, 0.0f, -1.0f, // Back Side
 	0.0f, 0.0f, -1.0f, // Back Side
 	0.0f, 0.0f, -1.0f, // Back Side
@@ -46,10 +50,6 @@ GLfloat Vertex_data::cube_normals[] = {
 	0.0f, 0.0f, -1.0f, // Back Side
 	0.0f, 0.0f, -1.0f, // Back Side
 	0.0f, 0.0f, -1.0f, // Back Side
-
-	-1.0f, 0.0f, 0.0f, // Left Side
-	-1.0f, 0.0f, 0.0f, // Left Side
-	-1.0f, 0.0f, 0.0f, // Left Side
 
 	0.0f, -1.0f, 0.0f, // Bottom Side
 	0.0f, -1.0f, 0.0f, // Bottom Side
