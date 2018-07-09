@@ -10,7 +10,7 @@ Camera::Camera()
 	this->transform = new CameraTransform();
 
 	//set basic properties.
-	transform->position = glm::vec3(0,0,0);
+	transform->position = glm::vec3(0, 0, 5.f);
 	transform->lookat = glm::vec3(0,0,0);
 	transform->fovy = 45.0f;
 	transform->aspect = (float)4 / (float)3;

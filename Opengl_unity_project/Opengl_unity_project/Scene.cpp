@@ -5,6 +5,7 @@
 #include "Updatable.h"
 #include "MyObject.h"
 #include "myGamemanager.h"
+#include "Light.h"
 
 std::vector<Renderer*> Scene::renderer;
 std::vector<Updatable*> Scene::updatable;
@@ -34,10 +35,14 @@ void Scene::init_scene()
 	camera_in_scene = new Camera();
 
 	gamemanager = new myGamemanager();
+
+	/*light = new Light();
+	light->init_light();*/
 }
 
 void Scene::start_scene()
 {
+	glfwSetCursorPos(Window::window, 1024 / 2, 768 / 2);
 	//call render for all object in vector.
 	while (glfwGetKey(Window::window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(Window::window) == 0)

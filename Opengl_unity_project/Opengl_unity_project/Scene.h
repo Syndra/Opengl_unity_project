@@ -2,6 +2,7 @@
 #include "Camera.h"
 #include <vector>
 
+class Light;
 class Timer;
 class Renderer;
 class Updatable;
@@ -20,6 +21,9 @@ public:
 
 	//Timer
 	Timer *timer;
+
+	//Light
+	//Light *light;
 
 	//Gamemanager
 	myGamemanager *gamemanager;

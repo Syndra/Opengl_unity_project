@@ -1,0 +1,20 @@
+#version 430 core
+
+layout (location = 0) in vec3 position;
+layout (location = 1) in vec3 color;
+layout (location = 2) in vec3 anormal;
+
+uniform mat4 MVP;
+uniform mat4 Model;
+
+out vec3 pass_color;
+out vec3 normal;
+out vec3 fragpos;
+
+void main(){
+gl_Position = MVP * vec4(position, 1);
+fragpos = vec3(Model * vec4(position , 1.0));
+pass_color = color;
+//normal = anormal;
+normal = mat3(transpose(inverse(Model))) * anormal; 
+}

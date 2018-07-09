@@ -112,6 +112,21 @@
     <Filter Include="헤더 파일\UserTier\Gamemanager">
       <UniqueIdentifier>{cb9ae2f3-f41a-4b4a-89e6-7695693096e4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\UserTier\Script">
+      <UniqueIdentifier>{070a27fb-18f0-45cb-9179-4b1fc6aedb4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UserTier\Script">
+      <UniqueIdentifier>{5a9d11ad-00aa-415b-918a-3a2808643c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일\NewFilter1">
+      <UniqueIdentifier>{612c698d-3208-430a-9372-0be7c3b3d3fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Light">
+      <UniqueIdentifier>{e586b109-6e91-4c1f-83f6-f73ffb1124c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Light">
+      <UniqueIdentifier>{faa2cea5-2615-473f-9109-b8e72c9acbb0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -158,6 +173,15 @@
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>소스 파일\Engine\Window\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MyobjectUpdatable.cpp">
+      <Filter>소스 파일\UserTier\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="소스.cpp">
+      <Filter>리소스 파일\NewFilter1</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>소스 파일\Engine\Component\Light</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -206,12 +230,24 @@
     <ClInclude Include="MyObject.h">
       <Filter>헤더 파일\UserTier\Block</Filter>
     </ClInclude>
+    <ClInclude Include="MyobjectUpdatable.h">
+      <Filter>헤더 파일\UserTier\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>헤더 파일\Engine\Component\Light</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="SimpleFragmentShader.txt">
       <Filter>리소스 파일</Filter>
     </Text>
     <Text Include="SimpleVertexShader.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="LightFragmentShader.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="LightVertexShader.txt">
       <Filter>리소스 파일</Filter>
     </Text>
   </ItemGroup>

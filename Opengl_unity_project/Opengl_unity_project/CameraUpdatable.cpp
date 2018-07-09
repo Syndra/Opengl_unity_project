@@ -6,7 +6,7 @@
 
 CameraUpdatable::CameraUpdatable(CameraTransform *transform)
 {
-	this->transform = transform;	
+	this->transform = transform;
 }
 
 
@@ -38,7 +38,7 @@ void CameraUpdatable::update()
 		cos(this->transform->h_angle - 3.14f / 2.0f)
 	);
 
-	glm::vec3 up = glm::cross(right, direction);
+	this->transform->up = glm::cross(right, direction);
 
 	// Move forward
 	if (glfwGetKey(Window::window, GLFW_KEY_UP) == GLFW_PRESS) {
@@ -62,11 +62,12 @@ void CameraUpdatable::update()
 	if (glfwGetKey(Window::window, GLFW_KEY_MINUS) == GLFW_PRESS) {
 		this->transform->fovy += Timer::deltatime * speed;
 	}
-	std::system("cls");
 	this->transform->lookat = this->transform->position + direction;
+	/*std::system("cls");
+	
 	std::cout << "x : " << this->transform->position.x << "\n"
 		<< "y : " << this->transform->position.y << "\n"
-		<< "z : " << this->transform->position.z << "\n";
+		<< "z : " << this->transform->position.z << "\n";*/
 }
 
 void CameraUpdatable::start()
