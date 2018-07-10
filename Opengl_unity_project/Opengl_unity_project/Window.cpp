@@ -23,7 +23,7 @@ Window::~Window()
 
 
 bool Window::init_glfw()
-{
+{	
 	if (!glfwInit())
 	{
 		std::fprintf(stderr, "Failed to initialize GLFW\n");

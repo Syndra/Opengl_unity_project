@@ -112,9 +112,6 @@
     <Filter Include="헤더 파일\UserTier\Script">
       <UniqueIdentifier>{5a9d11ad-00aa-415b-918a-3a2808643c51}</UniqueIdentifier>
     </Filter>
-    <Filter Include="리소스 파일\NewFilter1">
-      <UniqueIdentifier>{612c698d-3208-430a-9372-0be7c3b3d3fa}</UniqueIdentifier>
-    </Filter>
     <Filter Include="소스 파일\Engine\Component\Light">
       <UniqueIdentifier>{e586b109-6e91-4c1f-83f6-f73ffb1124c1}</UniqueIdentifier>
     </Filter>
@@ -126,6 +123,21 @@
     </Filter>
     <Filter Include="소스 파일\UserTier\MyObject">
       <UniqueIdentifier>{5085dc04-cff2-4b8e-8c65-355e2e153e68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일\Shaders">
+      <UniqueIdentifier>{45f90a42-136f-4f3a-b847-77cba8fe895f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Physics">
+      <UniqueIdentifier>{49849cf0-1d93-4f9e-8290-f20a3306a145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Physics">
+      <UniqueIdentifier>{2356d1d9-ae21-4d2a-b22a-d41e99c6d9dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SystemLayer\Texture">
+      <UniqueIdentifier>{17644b53-27e7-446f-b3a2-a97e91529438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SystemLayer\Texture">
+      <UniqueIdentifier>{047257ee-e220-43e4-a4dc-3ed76a774ef8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -177,14 +189,23 @@
     <ClCompile Include="MyobjectUpdatable.cpp">
       <Filter>소스 파일\UserTier\Script</Filter>
     </ClCompile>
-    <ClCompile Include="소스.cpp">
-      <Filter>리소스 파일\NewFilter1</Filter>
-    </ClCompile>
     <ClCompile Include="Light.cpp">
       <Filter>소스 파일\Engine\Component\Light</Filter>
     </ClCompile>
     <ClCompile Include="MyLightSource.cpp">
       <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeCollider.cpp">
+      <Filter>소스 파일\Engine\Component\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>소스 파일\Engine\Component\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>소스 파일\Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Textrue.cpp">
+      <Filter>소스 파일\Engine\SystemLayer\Texture</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -242,19 +263,37 @@
     <ClInclude Include="MyLightSource.h">
       <Filter>헤더 파일\UserTier\MyObject</Filter>
     </ClInclude>
+    <ClInclude Include="CubeCollider.h">
+      <Filter>헤더 파일\Engine\Component\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>헤더 파일\Engine\Component\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>헤더 파일\Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>헤더 파일\Engine\SystemLayer\Texture</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="SimpleFragmentShader.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
     <Text Include="SimpleVertexShader.txt">
-      <Filter>리소스 파일</Filter>
+      <Filter>리소스 파일\Shaders</Filter>
     </Text>
     <Text Include="LightFragmentShader.txt">
-      <Filter>리소스 파일</Filter>
+      <Filter>리소스 파일\Shaders</Filter>
     </Text>
     <Text Include="LightVertexShader.txt">
-      <Filter>리소스 파일</Filter>
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="SimpleFragmentShader.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="NoTextureF.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="NoTextureV.txt">
+      <Filter>리소스 파일\Shaders</Filter>
     </Text>
   </ItemGroup>
 </Project>

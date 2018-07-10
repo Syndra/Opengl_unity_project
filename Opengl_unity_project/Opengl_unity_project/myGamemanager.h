@@ -11,6 +11,7 @@ public:
 
 	std::vector<MyObject *> cubes;
 	MyLightSource *light;
+	MyLightSource *light1;
 
 	myGamemanager();
 	~myGamemanager();

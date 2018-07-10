@@ -4,6 +4,7 @@
 #include "CameraUpdatable.h"
 #include "CameraTransform.h"
 #include "Scene.h"
+#include "Light.h"
 
 Camera::Camera()
 {
@@ -20,6 +21,11 @@ Camera::Camera()
 	transform->h_angle = 3.14f;
 
 	this->updatable = new CameraUpdatable(transform);
+
+	cameraLight = new Light(this->transform);
+	cameraLight->lightColor = glm::vec3(0.1,0.1,0.1);
+	cameraLight->Power = 0.1f;
+	Scene::light.push_back(cameraLight);
 
 	Scene::updatable.push_back(updatable);
 }

@@ -2,6 +2,8 @@
 
 GLuint Shader::BasicLightShader;
 GLuint Shader::NoLightShader;
+GLuint Shader::NoTextureShader;
+std::vector<GLuint> Shader::shaders;
 
 GLuint Shader::LoadShaders(const char * vertex_file_path, const char * fragment_file_path) {
 
@@ -100,8 +102,13 @@ GLuint Shader::LoadShaders(const char * vertex_file_path, const char * fragment_
 
 void Shader::init_all_shaders()
 {
+	Shader::shaders = std::vector<GLuint>();
 	Shader::NoLightShader = Shader::LoadShaders("SimpleVertexShader.txt","SimpleFragmentShader.txt");
+	Shader::shaders.push_back(Shader::NoLightShader);
 	Shader::BasicLightShader = Shader::LoadShaders("LightVertexShader.txt","LightFragmentShader.txt");
+	Shader::shaders.push_back(Shader::BasicLightShader);
+	Shader::NoTextureShader = Shader::LoadShaders("NoTextureV.txt","NoTextureF.txt");
+	Shader::shaders.push_back(Shader::NoTextureShader);
 }
 
 

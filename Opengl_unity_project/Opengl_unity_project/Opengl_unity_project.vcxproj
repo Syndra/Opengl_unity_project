@@ -88,7 +88,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;Opengl32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FreeImage.lib;assimp.lib;glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;Opengl32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -123,9 +123,12 @@
     <ClCompile Include="CameraUpdatable.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraTransform.cpp" />
+    <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="CubeCollider.cpp" />
     <ClCompile Include="Gameobject.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="myGamemanager.cpp" />
     <ClCompile Include="MyLightSource.cpp" />
     <ClCompile Include="MyObject.cpp" />
@@ -133,20 +136,23 @@
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="Textrue.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="Vertex_data.cpp" />
     <ClCompile Include="Window.cpp" />
-    <ClCompile Include="소스.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CameraUpdatable.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraTransform.h" />
+    <ClInclude Include="Collider.h" />
+    <ClInclude Include="CubeCollider.h" />
     <ClInclude Include="Gameobject.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="linmath.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="myGamemanager.h" />
     <ClInclude Include="MyLightSource.h" />
     <ClInclude Include="MyObject.h" />
@@ -154,6 +160,7 @@
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="Updatable.h" />
@@ -162,7 +169,9 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="LightFragmentShader.txt" />
+    <Text Include="NoTextureF.txt" />
     <Text Include="LightVertexShader.txt" />
+    <Text Include="NoTextureV.txt" />
     <Text Include="SimpleFragmentShader.txt" />
     <Text Include="SimpleVertexShader.txt" />
   </ItemGroup>

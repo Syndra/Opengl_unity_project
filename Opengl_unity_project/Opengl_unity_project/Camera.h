@@ -6,7 +6,7 @@
 
 class CameraTransform;
 class CameraUpdatable;
-class ABCD;
+class Light;
 
 class Camera
 {
@@ -26,6 +26,9 @@ public:
 	GLfloat h_angle;
 
 	glm::vec3 up = glm::vec3(0,1,0);
+
+	//For test
+	Light *cameraLight;
 
 	Camera();
 	~Camera();

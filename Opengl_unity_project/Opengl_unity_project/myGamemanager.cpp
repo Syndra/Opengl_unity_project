@@ -5,20 +5,16 @@
 #include "MyObject.h"
 #include "MyLightSource.h"
 #include "Transform.h"
+#include "CameraTransform.h"
 #include "Shader.h"
 
 myGamemanager::myGamemanager()
 {
 	MyObject *a = new MyObject();
-	a->transform->position.x = 1;
-	a->transform->scale = 0.5f;
-	cubes.push_back(a);
-
-	MyObject *b = new MyObject();
-	b->transform->position.x = -1;
+	a->transform->scale = 1;
 
 	light = new MyLightSource();
-	light->transform->position = glm::vec3(10,10,10);
+	light->transform->position = glm::vec3(10,10,0);
 }
 
 

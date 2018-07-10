@@ -11,6 +11,9 @@ public:
 
 	static GLuint NoLightShader;
 	static GLuint BasicLightShader;
+	static GLuint NoTextureShader;
+
+	static std::vector<GLuint> shaders;
 
 	static GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
 	

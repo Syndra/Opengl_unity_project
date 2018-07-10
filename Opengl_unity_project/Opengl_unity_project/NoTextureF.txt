@@ -20,6 +20,7 @@ uniform sampler2D texture2D;
 uniform vec3 viewpos;
 uniform light lights[20];
 uniform int numofLight;
+uniform vec3 Color;
 
 void main(){
 
@@ -51,7 +52,7 @@ for(int i = 0; i < numofLight; i++)
 	specular += lights[i].specularStrength * spec * tempColor;
 }
 
-vec3 result = (ambient+diffuse+specular) * texture_color;
+vec3 result = (ambient+diffuse+specular) * Color;
 
 color = vec4(result, 1.f);
 }

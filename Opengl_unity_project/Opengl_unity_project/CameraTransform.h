@@ -7,7 +7,6 @@ class CameraTransform : public Transform
 {
 public:
 
-	glm::vec3 position;
 	glm::vec3 lookat;
 
 	float fovy;

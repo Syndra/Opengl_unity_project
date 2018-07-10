@@ -1,14 +1,23 @@
 #pragma once
 
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
 class Transform;
-
+/*
+Maximum #light = 20, check shader's array initializer.
+*/
 class Light
 {
 public:
+
+	static int numofLight;
+	static const int degree = 100;
+	float Power;
+
+	int lightID;
 
 	Transform * transform;
 
