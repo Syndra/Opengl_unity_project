@@ -18,7 +18,4 @@ MyobjectUpdatable::~MyobjectUpdatable()
 
 void MyobjectUpdatable::update()
 {
-	if (glfwGetKey(Window::window, GLFW_KEY_J) == GLFW_PRESS) {
-		std::cout << "J";
-	}
 }

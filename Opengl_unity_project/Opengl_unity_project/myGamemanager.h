@@ -10,8 +10,8 @@ class myGamemanager
 public:
 
 	std::vector<MyObject *> cubes;
-	MyLightSource *light;
-	MyLightSource *light1;
+	MyLightSource *sunlight;
+	MyLightSource *pointedlight;
 
 	myGamemanager();
 	~myGamemanager();

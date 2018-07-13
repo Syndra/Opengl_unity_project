@@ -4,12 +4,27 @@ layout (location = 0) in vec3 position;
 layout (location = 1) in vec2 uv;
 layout (location = 2) in vec3 anormal;
 
+//struct light{
+//int type;
+//float ambientStrength;
+//float specularStrength;
+//float lightPower;
+//vec3 lightColor;
+//vec3 lightPos;
+//vec3 lightDirection;
+//mat4 DepthBiasMVP;
+//};
+
 uniform mat4 MVP;
 uniform mat4 Model;
+//uniform int numofLight;
+
+//uniform light lights[20];
 
 out vec2 pass_uv;
 out vec3 normal;
 out vec3 fragpos;
+//out vec4 ShadowCoord[20];
 
 void main(){
 gl_Position = MVP * vec4(position, 1);
@@ -17,4 +32,9 @@ fragpos = vec3(Model * vec4(position , 1.0));
 //pass_color = vec3(0.5,0.5,0.5);
 pass_uv = uv;
 normal = mat3(transpose(inverse(Model))) * anormal; 
+
+//for(int i = 0; i < numofLight; i++)
+//{
+	//ShadowCoord[i] = lights[i].DepthBiasMVP * vec4(position, 1);
+//}
 }

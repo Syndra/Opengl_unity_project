@@ -204,8 +204,17 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>소스 파일\Engine\Component\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="Textrue.cpp">
+    <ClCompile Include="TextureLoader.cpp">
       <Filter>소스 파일\Engine\SystemLayer\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="FloorObject.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowMap.cpp">
+      <Filter>소스 파일\Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>소스 파일\Engine\Sprite</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -272,8 +281,17 @@
     <ClInclude Include="Mesh.h">
       <Filter>헤더 파일\Engine\Component\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="Model.h">
+      <Filter>헤더 파일\Engine\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
       <Filter>헤더 파일\Engine\SystemLayer\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="FloorObject.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowMap.h">
+      <Filter>헤더 파일\Engine\Component\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +311,12 @@
       <Filter>리소스 파일\Shaders</Filter>
     </Text>
     <Text Include="NoTextureV.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="DirShadow_F.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="DirShadow_V.txt">
       <Filter>리소스 파일\Shaders</Filter>
     </Text>
   </ItemGroup>

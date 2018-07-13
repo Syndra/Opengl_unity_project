@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Renderer.h"
-#include "Mesh.h"
+#include "Model.h"
 #include "Updatable.h"
 #include "Gameobject.h"
 
@@ -11,7 +11,7 @@ public:
 
 	Renderer * renderer;
 	Updatable * updatable;
-	Mesh * mesh;
+	Model * model;
 
 	MyObject();
 	~MyObject();

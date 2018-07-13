@@ -3,6 +3,7 @@
 GLuint Shader::BasicLightShader;
 GLuint Shader::NoLightShader;
 GLuint Shader::NoTextureShader;
+GLuint Shader::DirShadowShader;
 std::vector<GLuint> Shader::shaders;
 
 GLuint Shader::LoadShaders(const char * vertex_file_path, const char * fragment_file_path) {
@@ -109,6 +110,8 @@ void Shader::init_all_shaders()
 	Shader::shaders.push_back(Shader::BasicLightShader);
 	Shader::NoTextureShader = Shader::LoadShaders("NoTextureV.txt","NoTextureF.txt");
 	Shader::shaders.push_back(Shader::NoTextureShader);
+	Shader::DirShadowShader = Shader::LoadShaders("DirShadow_V.txt", "DirShadow_F.txt");
+	Shader::shaders.push_back(Shader::DirShadowShader);
 }
 
 

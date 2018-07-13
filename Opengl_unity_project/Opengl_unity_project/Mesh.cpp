@@ -1,32 +1,66 @@
 #include "Mesh.h"
 #include <stdio.h>
-#include "Texture.h"
+#include "TextureLoader.h"
 
-Mesh::Mesh(const char* meshName)
+Mesh::Mesh(vector<Vertex> vertices, vector<GLuint> indices, vector<Texture> textures)
 {
-	init_mesh();
+	this->vertices = vertices;
+	this->indices = indices;
+	this->textures = textures;
 
-	char basicpath[200] = "obj/";
-
-	strcat_s(basicpath, sizeof(basicpath), meshName);
-
-	path = basicpath;
-
-	loadAssimp();
+	// Now that we have all the required data, set the vertex buffers and its attribute pointers.
+	this->setupMesh();
 }
-
-Mesh::Mesh()
-{
-	init_mesh();
-
-	path = "obj/sujan.obj";
-
-	loadAssimp();
-}
-
 
 Mesh::~Mesh()
 {
+}
+
+// Render the mesh
+void Mesh::Draw(GLuint programID)
+{
+	// Bind appropriate textures
+	GLuint diffuseNr = 1;
+	GLuint specularNr = 1;
+
+	for (GLuint i = 0; i < this->textures.size(); i++)
+	{
+		glActiveTexture(GL_TEXTURE0 + i); // Active proper texture unit before binding
+										  // Retrieve texture number (the N in diffuse_textureN)
+		stringstream ss;
+		string number;
+		string name = this->textures[i].type;
+
+		if (name == "texture_diffuse")
+		{
+			ss << diffuseNr++; // Transfer GLuint to stream
+		}
+		else if (name == "texture_specular")
+		{
+			ss << specularNr++; // Transfer GLuint to stream
+		}
+
+		number = ss.str();
+		// Now set the sampler to the correct texture unit
+		glUniform1i(glGetUniformLocation(programID, (name + number).c_str()), i);
+		// And finally bind the texture
+		glBindTexture(GL_TEXTURE_2D, this->textures[i].id);
+	}
+
+	// Also set each mesh's shininess property to a default value (if you want you could extend this to another mesh property and possibly change this value)
+	glUniform1f(glGetUniformLocation(programID, "material.shininess"), 16.0f);
+
+	// Draw mesh
+	glBindVertexArray(this->VAO);
+	glDrawElements(GL_TRIANGLES, this->indices.size(), GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
+
+	// Always good practice to set everything back to defaults once configured.
+	for (GLuint i = 0; i < this->textures.size(); i++)
+	{
+		glActiveTexture(GL_TEXTURE0 + i);
+		glBindTexture(GL_TEXTURE_2D, 0);
+	}
 }
 
 void Mesh::set_texture(const char * filepath)
@@ -35,60 +69,38 @@ void Mesh::set_texture(const char * filepath)
 
 	strcat_s(basicpath, sizeof(basicpath), filepath);
 
-	Texture = Texture::CreateTexture(basicpath);
+	TextureID = TextureLoader::CreateTexture(basicpath);
 }
 
-bool Mesh::loadAssimp()
+void Mesh::setupMesh()
 {
-	Assimp::Importer importer;
+	// Create buffers/arrays
+	glGenVertexArrays(1, &this->VAO);
+	glGenBuffers(1, &this->VBO);
+	glGenBuffers(1, &this->EBO);
 
-	const aiScene* scene = importer.ReadFile(path, 0/*aiProcess_JoinIdenticalVertices | aiProcess_SortByPType*/);
-	if (!scene) {
-		fprintf(stderr, importer.GetErrorString());
-		getchar();
-		return false;
-	}
-	const aiMesh* mesh = scene->mMeshes[0]; // In this simple example code we always use the 1rst mesh (in OBJ files there is often only one anyway)
+	glBindVertexArray(this->VAO);
+	// Load data into vertex buffers
+	glBindBuffer(GL_ARRAY_BUFFER, this->VBO);
+	// A great thing about structs is that their memory layout is sequential for all its items.
+	// The effect is that we can simply pass a pointer to the struct and it translates perfectly to a glm::vec3/2 array which
+	// again translates to 3/2 floats which translates to a byte array.
+	glBufferData(GL_ARRAY_BUFFER, this->vertices.size() * sizeof(Vertex), &this->vertices[0], GL_STATIC_DRAW);
 
-											// Fill vertices positions
-	vertices.reserve(mesh->mNumVertices);
-	for (unsigned int i = 0; i<mesh->mNumVertices; i++) {
-		aiVector3D pos = mesh->mVertices[i];
-		vertices.push_back(glm::vec3(pos.x, pos.y, pos.z));
-	}
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, this->indices.size() * sizeof(GLuint), &this->indices[0], GL_STATIC_DRAW);
 
-	// Fill vertices texture coordinates
-	uvs.reserve(mesh->mNumVertices);
-	for (unsigned int i = 0; i<mesh->mNumVertices; i++) {
-		aiVector3D UVW = mesh->mTextureCoords[0][i]; // Assume only 1 set of UV coords; AssImp supports 8 UV sets.
-		uvs.push_back(glm::vec2(UVW.x, UVW.y));
-	}
+	// Set the vertex attribute pointers
+	// Vertex Positions
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)0);
+	// Vertex Normals
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, Normal));
+	// Vertex Texture Coords
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid *)offsetof(Vertex, TexCoords));
 
-	// Fill vertices normals
-	normals.reserve(mesh->mNumVertices);
-	for (unsigned int i = 0; i<mesh->mNumVertices; i++) {
-		aiVector3D n = mesh->mNormals[i];
-		normals.push_back(glm::vec3(n.x, n.y, n.z));
-	}
-
-
-	// Fill face indices
-	indices.reserve(3 * mesh->mNumFaces);
-	for (unsigned int i = 0; i<mesh->mNumFaces; i++) {
-		// Assume the model has only triangles.
-		indices.push_back(mesh->mFaces[i].mIndices[0]);
-		indices.push_back(mesh->mFaces[i].mIndices[1]);
-		indices.push_back(mesh->mFaces[i].mIndices[2]);
-	}
-	
-	// The "scene" pointer will be deleted automatically by "importer"
-	return true;
+	glBindVertexArray(0);
 }
 
-void Mesh::init_mesh()
-{
-	indices = std::vector<unsigned short>();
-	vertices = std::vector<glm::vec3>();
-	uvs = std::vector<glm::vec2>();
-	normals = std::vector<glm::vec3>();
-}

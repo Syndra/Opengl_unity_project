@@ -5,13 +5,13 @@
 #include <iostream>
 #include "FreeImage.h"
 
-class Texture
+class TextureLoader
 {
 public:
 
 	static GLuint CreateTexture(char const* filename);
 
-	Texture();
-	~Texture();
+	TextureLoader();
+	~TextureLoader();
 };
 

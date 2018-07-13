@@ -3,6 +3,7 @@
 #include "Scene.h"
 #include "Camera.h"
 #include "MyObject.h"
+#include "FloorObject.h"
 #include "MyLightSource.h"
 #include "Transform.h"
 #include "CameraTransform.h"
@@ -10,11 +11,34 @@
 
 myGamemanager::myGamemanager()
 {
-	MyObject *a = new MyObject();
-	a->transform->scale = 1;
+	Scene::camera_in_scene->transform->position = glm::vec3(0, 10, 0);
+	Scene::camera_in_scene->lookat = glm::vec3(0,11,0);
 
-	light = new MyLightSource();
-	light->transform->position = glm::vec3(10,10,0);
+	FloorObject *b = new FloorObject();
+	b->transform->position = glm::vec3(0, 1, 0);
+	MyObject *e = new MyObject();
+	e->transform->position = glm::vec3(0, -1, -1);
+	//FloorObject *c = new FloorObject();
+	//c->transform->position = 
+	//FloorObject *a = new FloorObject();
+	//FloorObject *e = new FloorObject();
+
+	//MyObject *a = new MyObject();
+	//a->transform->scale = 0.2;
+	//a->transform->position = glm::vec3(0, 2, 0);
+
+	sunlight = new MyLightSource();
+	sunlight->transform->position = glm::vec3(0,10,10);
+	sunlight->light->lightColor = glm::vec3(1,1,1);
+	sunlight->light->Power = 0.01;
+	sunlight->light->type = 0;
+	//sunlight->renderer->onRenderTarget = false;
+
+	/*pointedlight = new MyLightSource();
+	pointedlight->transform->position = glm::vec3(2, 2, 0);
+	pointedlight->light->lightColor = glm::vec3(1,1,1);
+	pointedlight->light->Power = 1;
+	pointedlight->light->type = 1;*/
 }
 
 
@@ -24,22 +48,22 @@ myGamemanager::~myGamemanager()
 
 void myGamemanager::run()
 {
-	if (glfwGetKey(Window::window, GLFW_KEY_A) == GLFW_PRESS) {
-		light->transform->position.x -= 0.1;
+	/*if (glfwGetKey(Window::window, GLFW_KEY_A) == GLFW_PRESS) {
+		pointedlight->transform->position.x -= 0.1;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_D) == GLFW_PRESS) {
-		light->transform->position.x += 0.1;
+		pointedlight->transform->position.x += 0.1;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_S) == GLFW_PRESS) {
-		light->transform->position.y -= 0.1;
+		pointedlight->transform->position.y -= 0.1;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_W) == GLFW_PRESS) {
-		light->transform->position.y += 0.1;
+		pointedlight->transform->position.y += 0.1;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_R) == GLFW_PRESS) {
-		light->transform->position.z -= 0.1;
+		pointedlight->transform->position.z -= 0.1;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_F) == GLFW_PRESS) {
-		light->transform->position.z += 0.1;
-	}
+		pointedlight->transform->position.z += 0.1;
+	}*/
 }

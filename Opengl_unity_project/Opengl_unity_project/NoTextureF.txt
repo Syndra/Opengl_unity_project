@@ -1,23 +1,28 @@
 #version 430 core
 
 struct light{
+int type;
 float ambientStrength;
 float specularStrength;
 float lightPower;
 vec3 lightColor;
 vec3 lightPos;
+vec3 lightDirection;
+mat4 DepthBiasMVP;
 };
 
-//in vec3 pass_color;
 in vec2 pass_uv;
 in vec3 normal;
 in vec3 fragpos;
+in vec4 ShadowCoord[20];
+in vec3 worldPos;
 
 out vec4 color;
 
-uniform sampler2D texture2D;
+uniform sampler2D shadowMap[20];
 
 uniform vec3 viewpos;
+uniform light lightt;
 uniform light lights[20];
 uniform int numofLight;
 uniform vec3 Color;
@@ -31,28 +36,52 @@ vec3 diffuse = vec3(0,0,0);
 vec3 ambient = vec3(0,0,0);
 vec3 specular = vec3(0,0,0);
 
-vec3 texture_color = texture(texture2D, pass_uv).rgb;
+float visibility = 1.0;
 
 for(int i = 0; i < numofLight; i++)
 {
-	vec3 tempColor = lights[i].lightColor;
-	vec3 lightDisVec3 = lights[i].lightPos - fragpos;
-	float lightDis = pow(lightDisVec3.x, 2) + pow(lightDisVec3.y, 2) + pow(lightDisVec3.z, 2);
-	vec3 lightDir = normalize(lightDisVec3);
-	tempColor *= (lights[i].lightPower / lightDis);
-	float diff = max(dot(norm, lightDir), 0.0);
-	//diffuse += diff * lights[i].lightColor;
-	diffuse += diff * tempColor;
+	if(lights[i].type == 0)
+	{
+		if ( texture( shadowMap[i], ShadowCoord[i].xy ).x  <  ShadowCoord[i].z){
+		visibility = 0.5;
+		}
+		vec3 tempColor = lights[i].lightColor;
+		vec3 lightDisVec3 = lights[i].lightPos;
+		vec3 lightDir = normalize(lightDisVec3);
+		tempColor *= lights[i].lightPower;
 
-	//ambient += lights[i].ambientStrength *  lights[i].lightColor;
-	ambient += lights[i].ambientStrength *  tempColor;
+		ambient += lights[i].ambientStrength *  tempColor;
+		//ambient += lights[i].ambientStrength;
 
-	vec3 reflectDir = reflect(-lightDir, norm);
-	float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
-	specular += lights[i].specularStrength * spec * tempColor;
+		float diff = max(dot(norm, lightDir), 0.0);
+		diffuse += diff * tempColor;
+
+		vec3 reflectDir = reflect(-lightDir, norm);
+		float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+		specular += lights[i].specularStrength * spec * tempColor;
+	}
+	else if(lights[i].type == 1)
+	{
+		vec3 tempColor = lights[i].lightColor;
+		vec3 lightDisVec3 = lights[i].lightPos - fragpos;
+		float lightDis = pow(lightDisVec3.x, 2) + pow(lightDisVec3.y, 2) + pow(lightDisVec3.z, 2);
+		vec3 lightDir = normalize(lightDisVec3);
+		tempColor *= (lights[i].lightPower / lightDis);
+		float diff = max(dot(norm, lightDir), 0.0);
+		//diffuse += diff * lights[i].lightColor;
+		diffuse += diff * tempColor;
+
+		//ambient += lights[i].ambientStrength *  lights[i].lightColor;
+		//ambient += lights[i].ambientStrength *  tempColor;
+		ambient += lights[i].ambientStrength;
+
+		vec3 reflectDir = reflect(-lightDir, norm);
+		float spec = pow(max(dot(viewDir, reflectDir), 0.0), 256);
+		specular += lights[i].specularStrength * spec * tempColor;
+	}
 }
 
-vec3 result = (ambient+diffuse+specular) * Color;
-
-color = vec4(result, 1.f);
+vec3 result = (ambient+diffuse+specular) * Color * visibility;
+color = vec4(result, 1);
+//color = vec3(texture( shadowMap[0], worldPos.xz ).x);
 }

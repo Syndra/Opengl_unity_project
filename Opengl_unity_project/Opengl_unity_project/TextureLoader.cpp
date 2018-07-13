@@ -1,18 +1,18 @@
-#include "Texture.h"
+#include "TextureLoader.h"
 
 
 using namespace std;
 
-Texture::Texture()
+TextureLoader::TextureLoader()
 {
 }
 
 
-Texture::~Texture()
+TextureLoader::~TextureLoader()
 {
 }
 
-GLuint Texture::CreateTexture(char const* filename)
+GLuint TextureLoader::CreateTexture(char const* filename)
 {
 	// Determine the format of the image.
 	// Note: The second paramter ('size') is currently unused, and we should use 0 for it.
