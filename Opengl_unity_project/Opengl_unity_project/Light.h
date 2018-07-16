@@ -31,13 +31,12 @@ public:
 	float ambientStrengh  = 0.1f;
 	float specularStrenth = 0.1f;
 	glm::vec3 lightColor = glm::vec3(0.5f, 0.5f, 0.5f);
-	glm::vec3 direction = glm::vec3(0,-1,-1);
+	glm::vec3 direction = glm::vec3(1,1,1);
 
 	Light(Transform *transform);
 	~Light();
 
 	void setShadowMap(int type);
-	void drawShadowMap();
 	void refresh();
 };
 

@@ -35,58 +35,9 @@ void Light::setShadowMap(int type)
 	this->shadowMap = new ShadowMap(this->transform->position, this->direction, type);
 }
 
-void Light::drawShadowMap()
-{
-	glBindFramebuffer(GL_FRAMEBUFFER, this->shadowMap->FrameBuffer);
-	glViewport(0, 0, 1024, 1024); // Render on the whole framebuffer, complete from the lower left corner to the upper right
-
-	glEnable(GL_CULL_FACE);
-	glCullFace(GL_BACK); // Cull back-facing triangles -> draw only front-facing triangles
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glUseProgram(Shader::DirShadowShader);
-	//glm::vec3 lightInvDir = glm::vec3(0.5f, 2, 2);
-	glm::vec3 lightInvDir = direction;
-
-	// Compute the MVP matrix from the light's point of view
-	glm::mat4 depthProjectionMatrix = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
-	glm::mat4 depthViewMatrix = glm::lookAt(lightInvDir, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-	glm::mat4 depthModelMatrix = glm::mat4(1.0);
-	glm::mat4 depthMVP = depthProjectionMatrix * depthViewMatrix * depthModelMatrix;
-
-	// Send our transformation to the currently bound shader,
-	// in the "MVP" uniform
-	GLuint dr = glGetUniformLocation(Shader::DirShadowShader, "depthMVP");
-	glUniformMatrix4fv(dr, 1, GL_FALSE, &depthMVP[0][0]);
-
-	for (int i = 0; i < Scene::renderer.size(); i++) 
-	{
-		for (int j = 0; j < Scene::renderer.at(i)->model->meshes.size(); j++) 
-		{
-			glBindVertexArray(Scene::renderer.at(i)->model->meshes.at(j).VAO);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Scene::renderer.at(i)->model->meshes.at(j).EBO);
-			glDrawElements(
-				GL_TRIANGLES,      // mode
-				Scene::renderer.at(i)->model->meshes.at(j).indices.size(),    // count
-				GL_UNSIGNED_INT,   // type
-				(void*)0           // element array buffer offset
-			);
-		}
-	}
-
-	glm::mat4 biasMatrix(
-		0.5, 0.0, 0.0, 0.0,
-		0.0, 0.5, 0.0, 0.0,
-		0.0, 0.0, 0.5, 0.0,
-		0.5, 0.5, 0.5, 1.0
-	);
-	depthBiasMVP = biasMatrix * depthMVP;
-}
-
 void Light::refresh()
 {
-	drawShadowMap();
+	this->shadowMap->drawShadowMap();
 
 	for (int i = 0; i < Shader::shaders.size(); i++) {
 		glUseProgram(Shader::shaders.at(i));
@@ -107,7 +58,7 @@ void Light::refresh()
 		drUniLoca = "lights[" + std::to_string(lightID) + "].lightDirection";
 
 		std::string DepthMVPUniLoca;
-		DepthMVPUniLoca = "lights["+ std::to_string(lightID)+"].DepthBiasMVP";
+		DepthMVPUniLoca = "lights["+ std::to_string(lightID)+"].DepthBiasVP";
 
 		GLuint tp = glGetUniformLocation(Shader::shaders.at(i), tpUniLoca.c_str()); //int
 		GLuint as = glGetUniformLocation(Shader::shaders.at(i), asUniLoca.c_str()); //float
@@ -131,7 +82,7 @@ void Light::refresh()
 
 		glUniform1i(nl, Light::numofLight);
 
-		glUniform4fv(dbmvp,1, &this->depthBiasMVP[0][0]);
+		glUniform4fv(dbmvp,1, &this->shadowMap->depthBiasVP[0][0]);
 
 		std::string sdwmapUniLoca;
 		sdwmapUniLoca = "shadowMap[" + std::to_string(lightID) + "]";

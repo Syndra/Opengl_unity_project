@@ -10,7 +10,7 @@ MyLightSource::MyLightSource()
 	this->transform = new Transform(100, 40, 10);
 	this->renderer = new Renderer(this->transform);
 
-	this->model = new Model("obj/box.obj");
+	this->model = new Model("obj/sphere.obj");
 	this->renderer->set_model(this->model);
 
 	this->light = new Light(this->transform);

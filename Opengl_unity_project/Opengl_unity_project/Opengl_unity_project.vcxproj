@@ -88,7 +88,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SOIL.lib;soil2.lib;FreeImage.lib;assimp.lib;glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;Opengl32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SOIL.lib;FreeImage.lib;assimp.lib;glew32.lib;glew32s.lib;glfw3.lib;glfw3dll.lib;Opengl32.Lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

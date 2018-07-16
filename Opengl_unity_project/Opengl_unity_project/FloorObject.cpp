@@ -13,7 +13,7 @@ FloorObject::FloorObject()
 	this->renderer = new Renderer(this->transform);
 	this->transform->scale = 1;
 
-	this->model = new Model("obj/sujan.obj");
+	this->model = new Model("obj/cube.obj");
 	//this->model->meshes.at(0).set_texture("solmarbre1.png");
 
 	this->renderer->set_model(this->model);

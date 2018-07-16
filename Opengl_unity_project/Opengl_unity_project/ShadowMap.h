@@ -8,16 +8,22 @@ class ShadowMap
 {
 public:
 
-	GLuint FrameBuffer = 1;
+	GLuint FrameBuffer = 0;
 	GLuint shader;
 
-	//glm::mat4 depthBiasMVP;
+	int type;
+	glm::vec3 direction;
+	glm::vec3 location;
+
+	glm::mat4 depthVP;
+	glm::mat4 depthBiasVP;
 	GLuint depthTexture;
 
 	ShadowMap(glm::vec3 location, glm::vec3 direction, int type);
 	~ShadowMap();
 
-	bool setupDirectedShadowMap(glm::vec3 direction);
+	bool setupDirectedShadowMap();
 	bool setupPointedShadowMap();
+	void drawShadowMap();
 };
 

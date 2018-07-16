@@ -8,7 +8,7 @@ float lightPower;
 vec3 lightColor;
 vec3 lightPos;
 vec3 lightDirection;
-mat4 DepthBiasMVP;
+mat4 DepthBiasVP;
 };
 
 in vec2 pass_uv;
@@ -42,11 +42,11 @@ for(int i = 0; i < numofLight; i++)
 {
 	if(lights[i].type == 0)
 	{
-		if ( texture( shadowMap[i], ShadowCoord[i].xy ).x  <  ShadowCoord[i].z){
-		visibility = 0.5;
+		if ( texture( shadowMap[i], ShadowCoord[i].xy ).z  <  ShadowCoord[i].z){
+			visibility = 0.5;
 		}
 		vec3 tempColor = lights[i].lightColor;
-		vec3 lightDisVec3 = lights[i].lightPos;
+		vec3 lightDisVec3 = lights[i].lightDirection;
 		vec3 lightDir = normalize(lightDisVec3);
 		tempColor *= lights[i].lightPower;
 
@@ -82,6 +82,9 @@ for(int i = 0; i < numofLight; i++)
 }
 
 vec3 result = (ambient+diffuse+specular) * Color * visibility;
+//vec3 result = (ambient+diffuse+specular) * Color;
 color = vec4(result, 1);
-//color = vec3(texture( shadowMap[0], worldPos.xz ).x);
+//color = vec4(Color, 1);
+//color = vec4(texture( shadowMap[0], ShadowCoord[0].xz).x));
+//color = vec4(texture( shadowMap[0],ShadowCoord[0].xy).z , 1);
 }
