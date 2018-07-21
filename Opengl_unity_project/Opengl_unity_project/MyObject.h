@@ -15,6 +15,6 @@ public:
 
 	MyObject();
 	~MyObject();
-
+	void set_model(std::string path);
 };
 

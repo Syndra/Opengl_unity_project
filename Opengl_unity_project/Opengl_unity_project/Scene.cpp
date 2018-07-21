@@ -49,9 +49,12 @@ void Scene::start_scene()
 	while (glfwGetKey(Window::window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(Window::window) == 0)
 	{
+
+		glEnable(GL_CULL_FACE);
+		glCullFace(GL_FRONT);
 		//set default background color.
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glClearColor(0,0,0,1);
+		glClearColor(0.5,0.5,0.5,1);
 
 		gamemanager->run();
 
@@ -66,6 +69,8 @@ void Scene::start_scene()
 		{
 			Scene::renderer.at(it)->render(camera_in_scene);
 		}
+
+
 
 		for (int it = 0; it < Scene::updatable.size(); it++)
 		{

@@ -21,5 +21,8 @@ public:
 
 	static GLfloat floor[18];
 	static GLfloat floor_color[18];
+
+	static GLfloat panel[18];
+	static GLfloat panel_uv[12];
 };
 

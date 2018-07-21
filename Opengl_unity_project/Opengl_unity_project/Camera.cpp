@@ -11,7 +11,7 @@ Camera::Camera()
 	this->transform = new CameraTransform();
 
 	//set basic properties.
-	transform->position = glm::vec3(0, 0, -5.f);
+	transform->position = glm::vec3(0, 5, -5.f);
 	transform->lookat = glm::vec3(0,0,0);
 	transform->fovy = 45.0f;
 	transform->aspect = (float)4 / (float)3;
@@ -22,11 +22,12 @@ Camera::Camera()
 
 	this->updatable = new CameraUpdatable(transform);
 
-	//cameraLight = new Light(this->transform);
-	//cameraLight->lightColor = glm::vec3(0.1,0.1,0.1);
-	//cameraLight->Power = 0.1f;
-	//cameraLight->type = 1;
-	//Scene::light.push_back(cameraLight);
+	/*cameraLight = new Light(this->transform);
+	cameraLight->lightColor = glm::vec3(1,0,0);
+	cameraLight->Power = 0.1f;
+	cameraLight->type = 1;
+	cameraLight->lookat = this->transform->lookat;
+	Scene::light.push_back(cameraLight);*/
 
 	Scene::updatable.push_back(updatable);
 }

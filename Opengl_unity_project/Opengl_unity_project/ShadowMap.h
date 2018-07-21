@@ -8,7 +8,7 @@ class ShadowMap
 {
 public:
 
-	GLuint FrameBuffer = 0;
+	GLuint FrameBuffer = 5;
 	GLuint shader;
 
 	int type;
@@ -23,7 +23,7 @@ public:
 	~ShadowMap();
 
 	bool setupDirectedShadowMap();
-	bool setupPointedShadowMap();
+	bool setupSpotShadowMap();
 	void drawShadowMap();
 };
 

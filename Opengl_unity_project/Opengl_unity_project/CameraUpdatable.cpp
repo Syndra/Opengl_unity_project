@@ -63,11 +63,6 @@ void CameraUpdatable::update()
 		this->transform->fovy += Timer::deltatime * speed;
 	}
 	this->transform->lookat = this->transform->position + direction;
-	/*std::system("cls");
-	
-	std::cout << "x : " << this->transform->position.x << "\n"
-		<< "y : " << this->transform->position.y << "\n"
-		<< "z : " << this->transform->position.z << "\n";*/
 }
 
 void CameraUpdatable::start()

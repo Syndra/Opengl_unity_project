@@ -13,29 +13,26 @@ vec3 lightColor;
 vec3 lightPos;
 vec3 lightDirection;
 mat4 DepthBiasVP;
+vec3 lookat;
+float FOV;
 };
 
 uniform mat4 MVP;
 uniform mat4 Model;
 uniform int numofLight;
-
 uniform light lights[20];
 
 out vec3 normal;
-out vec3 fragpos;
 out vec4 ShadowCoord[20];
-out vec3 worldPos;
-
+out vec2 pass_uv;
+out vec3 fragpos;
 
 void main(){
+fragpos = vec3(Model * vec4(position, 1));
 gl_Position = MVP * vec4(position, 1);
-fragpos = vec3(Model * vec4(position , 1.0));
 normal = mat3(transpose(inverse(Model))) * anormal; 
-
 for(int i = 0; i < numofLight; i++)
-{
+{	
 	ShadowCoord[i] = lights[i].DepthBiasVP * Model * vec4(position, 1);	
 }
-
-//worldPos = position;
 }

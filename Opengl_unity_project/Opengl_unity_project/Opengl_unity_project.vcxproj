@@ -180,6 +180,8 @@
     <Text Include="NoTextureF.txt" />
     <Text Include="LightVertexShader.txt" />
     <Text Include="NoTextureV.txt" />
+    <Text Include="panel_f.txt" />
+    <Text Include="panel_v.txt" />
     <Text Include="SimpleFragmentShader.txt" />
     <Text Include="SimpleVertexShader.txt" />
   </ItemGroup>

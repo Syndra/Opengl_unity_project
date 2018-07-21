@@ -5,6 +5,9 @@ GLfloat Vertex_data::textureCoordinate[] = {
 	1.0f, 0.0f,  //vertex 2
 	0.0f, 0.0f   //vertex 3        
 };
+
+
+
 GLfloat Vertex_data::tri_data[] = {
 	-1.0f, -1.0f, 0.0f,
 	1.0f, -1.0f, 0.0f,
@@ -175,6 +178,26 @@ GLfloat Vertex_data::floor_color[18] =
 	1.0f, 1.0f, 1.0f,
 	1.0f, 1.0f, 1.0f,
 	1.0f, 1.0f, 1.0f,
+};
+
+GLfloat Vertex_data::panel[18] =
+{
+	0, 0, 0,
+	1, 0 ,0,
+	1, 1, 0,
+	0, 0 ,0,
+	0, 1, 0,
+	1, 1, 0
+};
+
+GLfloat Vertex_data::panel_uv[12] =
+{
+	0, 0,
+	1, 0, 
+	1, 1,
+	0, 0, 
+	0, 1,
+	1, 1,
 };
 
 Vertex_data::Vertex_data()

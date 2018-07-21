@@ -319,5 +319,11 @@
     <Text Include="DirShadow_V.txt">
       <Filter>리소스 파일\Shaders</Filter>
     </Text>
+    <Text Include="panel_f.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="panel_v.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
   </ItemGroup>
 </Project>

@@ -11,7 +11,7 @@ MyObject::MyObject()
 	this->transform = new Transform(0,0,0);
 	this->renderer = new Renderer(this->transform);
 
-	this->model = new Model("obj/cube2.obj");
+	this->model = new Model("obj/wall.obj");
 	//this->model->meshes.at(0).set_texture("drkwood2.jpg");
 
 	this->renderer->set_model(this->model);
@@ -27,4 +27,10 @@ MyObject::MyObject()
 
 MyObject::~MyObject()
 {
+}
+
+void MyObject::set_model(std::string path)
+{
+	this->model = new Model(path.c_str());
+	this->renderer->set_model(this->model);
 }

@@ -14,11 +14,12 @@ class Light
 {
 public:
 
-	// 0 : directed, 1 : pointed
+	// 0 : directed, 1 : pointed, 2 : spot
 	int type;
 
 	static int numofLight;
 	static const int degree = 100;
+	static float ambientStrength;
 	float Power;
 
 	int lightID;
@@ -28,12 +29,14 @@ public:
 	ShadowMap *shadowMap;
 	glm::mat4 depthBiasMVP;
 
-	float ambientStrengh  = 0.1f;
+	//float ambientStrengh  = 0.1f;
 	float specularStrenth = 0.1f;
 	glm::vec3 lightColor = glm::vec3(0.5f, 0.5f, 0.5f);
-	glm::vec3 direction = glm::vec3(1,1,1);
+	glm::vec3 direction = glm::vec3(0,-1,0);
+	glm::vec3 lookat = glm::vec3(0,-1,0);
+	float FOV = 20.0f;
 
-	Light(Transform *transform);
+	Light(Transform *transform, int type);
 	~Light();
 
 	void setShadowMap(int type);

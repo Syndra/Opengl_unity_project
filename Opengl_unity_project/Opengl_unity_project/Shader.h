@@ -13,6 +13,7 @@ public:
 	static GLuint BasicLightShader;
 	static GLuint NoTextureShader;
 	static GLuint DirShadowShader;
+	static GLuint panel;
 
 	static std::vector<GLuint> shaders;
 

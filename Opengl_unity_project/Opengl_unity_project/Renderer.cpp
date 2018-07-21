@@ -9,7 +9,7 @@
 Renderer::Renderer(Transform *transform)
 {
 	//default setting.
-	this->shader = Shader::BasicLightShader;
+	//this->shader = Shader::BasicLightShader;
 	this->transform = transform;
 }
 
@@ -21,7 +21,7 @@ void Renderer::render(Camera * camera)
 		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 		glUseProgram(shader);
-
+		glCullFace(GL_BACK);
 		glm::mat4 mvp = camera->get_projection_matrix() * camera->get_view_matrix() * compute_model_matrix();
 		glm::mat4 model = compute_model_matrix();
 
@@ -45,9 +45,9 @@ void Renderer::render(Camera * camera)
 
 			//texture
 			GLuint texture = glGetUniformLocation(shader, "texture2D");
-			glActiveTexture(GL_TEXTURE0);
+			glActiveTexture(GL_TEXTURE1);
 			glBindTexture(GL_TEXTURE_2D, this->model->meshes.at(loop).TextureID);
-			glUniform1i(texture, 0);
+			glUniform1i(texture, 1);
 
 			//glDrawArrays(GL_TRIANGLES, 0, vertex_num / 3);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->model->meshes.at(0).EBO);
@@ -61,38 +61,6 @@ void Renderer::render(Camera * camera)
 		}
 	}
 }
-
-//void Renderer::set_VBO()
-//{
-//	//Init VAO
-//	glGenVertexArrays(1, &this->VAO);
-//	glBindVertexArray(this->VAO);
-//	
-//	//Set buffer by model data.
-//	glGenBuffers(1, &this->VBO_vertices);
-//	glBindBuffer(GL_ARRAY_BUFFER, this->VBO_vertices);
-//	glBufferData(GL_ARRAY_BUFFER, mesh->vertices.size() * sizeof(glm::vec3), &mesh->vertices[0], GL_STATIC_DRAW);
-//	glEnableVertexAttribArray(0);
-//	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-//
-//	glGenBuffers(1, &this->VBO_uvs);
-//	glBindBuffer(GL_ARRAY_BUFFER, this->VBO_uvs);
-//	glBufferData(GL_ARRAY_BUFFER, mesh->uvs.size() * sizeof(glm::vec2), &mesh->uvs[0], GL_STATIC_DRAW);
-//	glEnableVertexAttribArray(1);
-//	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void*)0);
-//
-//	glGenBuffers(1, &this->VBO_normals);
-//	glBindBuffer(GL_ARRAY_BUFFER, this->VBO_normals);
-//	glBufferData(GL_ARRAY_BUFFER, mesh->normals.size() * sizeof(glm::vec3), &mesh->normals[0], GL_STATIC_DRAW);
-//	glEnableVertexAttribArray(2);
-//	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-//
-//	glGenBuffers(1, &this->EBO);
-//	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, this->EBO);
-//	glBufferData(GL_ELEMENT_ARRAY_BUFFER, mesh->indices.size() * sizeof(unsigned int), &mesh->indices[0], GL_STATIC_DRAW);
-//	
-//	glBindVertexArray(0);
-//}
 
 void Renderer::set_model(Model * model)
 {
