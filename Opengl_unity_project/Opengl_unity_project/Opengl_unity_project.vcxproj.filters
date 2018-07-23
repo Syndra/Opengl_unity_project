@@ -216,6 +216,9 @@
     <ClCompile Include="Model.cpp">
       <Filter>소스 파일\Engine\Sprite</Filter>
     </ClCompile>
+    <ClCompile Include="LightTransform.cpp">
+      <Filter>소스 파일\Engine\Component\Light</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -292,6 +295,9 @@
     </ClInclude>
     <ClInclude Include="ShadowMap.h">
       <Filter>헤더 파일\Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="LightTransform.h">
+      <Filter>헤더 파일\Engine\Component\Light</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

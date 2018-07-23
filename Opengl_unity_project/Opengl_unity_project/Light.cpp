@@ -11,14 +11,17 @@
 #include "Renderer.h"
 #include "Model.h"
 #include "Mesh.h"
+#include "LightTransform.h"
 
 int Light::numofLight;
 float Light::ambientStrength;
 
 Light::Light(Transform *transform, int type)
 {
-	this->type = type;
-	this->transform = transform;
+	this->transform = new LightTransform();
+	this->transform->type = type;
+	this->transform->position = transform->position;
+	this->transform->direction = glm::vec3(0.5f,2,2);
 	this->lightID = Light::numofLight;
 	this->Power = 1.f;
 	this->ambientStrength = 0.1f;
@@ -35,7 +38,7 @@ Light::~Light()
 
 void Light::setShadowMap(int type) 
 {
-	this->shadowMap = new ShadowMap(this->transform->position, this->direction, type);
+	this->shadowMap = new ShadowMap(this->transform);
 }
 
 void Light::refresh()
@@ -83,22 +86,22 @@ void Light::refresh()
 		GLuint dbmvp = glGetUniformLocation(Shader::shaders.at(i), DepthMVPUniLoca.c_str()); //mat4
 		GLuint texture = glGetUniformLocation(Shader::shaders.at(i), sdwmapUniLoca.c_str());
 		
-		glUniform1i(tp, this->type);
+		glUniform1i(tp, this->transform->type);
 		glUniform1f(as, Light::ambientStrength);
 		glUniform1f(ss, this->specularStrenth);
 		glUniform1f(pw, this->Power * Light::degree);
 		glUniform3fv(lc, 1, &this->lightColor[0]);
 		glUniform3fv(lp, 1, &this->transform->position[0]);
-		glUniform3fv(dr, 1, &this->direction[0]);
+		glUniform3fv(dr, 1, &this->transform->direction[0]);
 		
-		glUniform3fv(la, 1, &this->lookat[0]);
-		glUniform1f(fov, this->FOV);
+		glUniform3fv(la, 1, &this->transform->lookat[0]);
+		glUniform1f(fov, this->transform->FOV);
 
 		glUniform1i(nl, Light::numofLight);
 		glUniformMatrix4fv(dbmvp, 1, GL_FALSE, &this->shadowMap->depthBiasVP[0][0]);
 
-		glActiveTexture(GL_TEXTURE20 + this->lightID);
+		glActiveTexture(GL_TEXTURE0 + this->lightID);
 		glBindTexture(GL_TEXTURE_2D, this->shadowMap->depthTexture);
-		glUniform1i(texture, 20 + this->lightID);
+		glUniform1i(texture, this->lightID);
 	}
 }

@@ -128,6 +128,7 @@
     <ClCompile Include="FloorObject.cpp" />
     <ClCompile Include="Gameobject.cpp" />
     <ClCompile Include="Light.cpp" />
+    <ClCompile Include="LightTransform.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="FloorObject.h" />
     <ClInclude Include="Gameobject.h" />
     <ClInclude Include="Light.h" />
+    <ClInclude Include="LightTransform.h" />
     <ClInclude Include="linmath.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />

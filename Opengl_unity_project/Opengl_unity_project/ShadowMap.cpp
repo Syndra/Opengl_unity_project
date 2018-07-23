@@ -6,23 +6,12 @@
 #include "Mesh.h"
 #include "Window.h"
 #include "Transform.h"
+#include "LightTransform.h"
 
-
-ShadowMap::ShadowMap(glm::vec3 location, glm::vec3 direction, int type)
+ShadowMap::ShadowMap(LightTransform * transform)
 {
 	shader = Shader::DirShadowShader;
-	this->location = location;
-	this->type = type;
-	this->direction = direction;
-	if (type == 0) 
-	{
-		setupDirectedShadowMap();
-
-	}
-	if (type == 1)
-	{
-		this->setupSpotShadowMap();
-	}
+	this->transform = transform;
 }
 
 
@@ -53,7 +42,7 @@ bool ShadowMap::setupDirectedShadowMap()
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		return false;
 
-	glm::vec3 lightInvDir = direction;
+	glm::vec3 lightInvDir = transform->direction;
 
 	glm::mat4 depthProjectionMatrix = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
 	glm::mat4 depthViewMatrix = glm::lookAt(lightInvDir, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
@@ -84,16 +73,23 @@ bool ShadowMap::setupSpotShadowMap()
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		return false;
 
-	glm::vec3 lightInvDir = direction;
-
 	glm::mat4 depthProjectionMatrix = glm::perspective(glm::radians(45.f), 1.0f, 2.0f, 50.f);
-	glm::mat4 depthViewMatrix = glm::lookAt(glm::vec3(0,10,0), glm::vec3(0,-1,0), glm::vec3(0, 1, 0));
+	glm::mat4 depthViewMatrix = glm::lookAt(this->transform->position+glm::vec3(0.000001), this->transform->lookat, glm::vec3(0, 1, 0));
 	this->depthVP = depthProjectionMatrix * depthViewMatrix;
 	return true;
 }
 
 void ShadowMap::drawShadowMap()
 {
+	if (transform->type == 0)
+	{
+		setupDirectedShadowMap();
+
+	}
+	if (transform->type == 1)
+	{
+		this->setupSpotShadowMap();
+	}
 	glBindFramebuffer(GL_FRAMEBUFFER, this->FrameBuffer);
 	//glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	glUseProgram(shader);

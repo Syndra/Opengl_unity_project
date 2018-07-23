@@ -4,22 +4,22 @@
 #include <glm\glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+class LightTransform;
+
 class ShadowMap
 {
 public:
 
+	LightTransform * transform;
+
 	GLuint FrameBuffer = 5;
 	GLuint shader;
-
-	int type;
-	glm::vec3 direction;
-	glm::vec3 location;
 
 	glm::mat4 depthVP;
 	glm::mat4 depthBiasVP;
 	GLuint depthTexture;
 
-	ShadowMap(glm::vec3 location, glm::vec3 direction, int type);
+	ShadowMap(LightTransform * transform);
 	~ShadowMap();
 
 	bool setupDirectedShadowMap();

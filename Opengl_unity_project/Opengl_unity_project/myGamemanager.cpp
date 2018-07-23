@@ -8,6 +8,7 @@
 #include "Transform.h"
 #include "CameraTransform.h"
 #include "Shader.h"
+#include "LightTransform.h"
 
 myGamemanager::myGamemanager()
 {
@@ -17,22 +18,28 @@ myGamemanager::myGamemanager()
 	MyObject *c = new MyObject();
 	c->transform->position = glm::vec3(0, 0, 0);
 
+	MyObject *panel = new MyObject();
+	panel->transform->position = glm::vec3(0, 0, -10);
+	panel->transform->scale = 10;
+	panel->renderer->shader = Shader::panel;
+	panel->set_model("obj/panel.obj");
+
+
 	/*sunlight = new MyLightSource();
 	sunlight->transform->position = glm::vec3(0,10,10);
 	sunlight->light->lightColor = glm::vec3(1,1,1);
 	sunlight->light->Power = 0.01;
-	sunlight->light->type = 0;
-	sunlight->light->direction = glm::vec3(0.5,2,2);
+	sunlight->light->transform->type = 0;
+	sunlight->light->transform->direction = glm::vec3(1,1,-1);
 	sunlight->renderer->onRenderTarget = false;*/
 
 	MyLightSource *spotlight = new MyLightSource();
 	spotlight->transform->position = glm::vec3(0, 10, 0);
-	spotlight->light->lightColor = glm::vec3(1, 0, 0);
-	spotlight->light->lookat = glm::vec3(0, 1, 0);
-	spotlight->light->direction - glm::vec3(0,-1,0);
-	spotlight->light->Power = 100.f;
-	spotlight->light->type = 1;
-	spotlight->light->FOV = 0.3f;
+	spotlight->light->lightColor = glm::vec3(1, 1, 1);
+	spotlight->light->transform->lookat = glm::vec3(1, 1, 1);
+	spotlight->light->Power = 1.f;
+	spotlight->light->transform->type = 1;
+	spotlight->light->transform->FOV = 0.3f;
 	spotlight->renderer->onRenderTarget = true;
 
 

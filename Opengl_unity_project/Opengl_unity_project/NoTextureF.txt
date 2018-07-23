@@ -79,7 +79,7 @@ for(int i = 0; i < numofLight; i++)
 	else if(lights[i].type == 1)
 	{
 		for(int j  = 0 ;j<4;j++){
-		if ( texture( shadowMap[i], ShadowCoord[i].xy  + poissonDisk[j]/700.0 ).x  < ShadowCoord[i].z - bias){
+		if ( texture( shadowMap[i], (ShadowCoord[i].xy / ShadowCoord[i].w  + poissonDisk[j]/700.0 ) ).x  < (ShadowCoord[i].z - bias) / ShadowCoord[i].w){
 			visibility -= 0.1;
 		}
 		}
@@ -90,13 +90,14 @@ for(int i = 0; i < numofLight; i++)
 		tempColor *= (lights[i].lightPower / lightDis);
 		float diff = max(dot(norm, lightDir), 0.0);
 
+		diffuse += diff * tempColor;
 		if(dot(lightDir, normalize(lights[i].lookat)) < cos(lights[i].FOV))
 		{
 			diff = 0;
 		}
 
 		//diffuse += diff * lights[i].lightColor;
-		diffuse += diff * tempColor;
+
 
 		//ambient += lights[i].ambientStrength *  lights[i].lightColor;
 		//ambient += lights[i].ambientStrength *  tempColor;
@@ -110,4 +111,6 @@ for(int i = 0; i < numofLight; i++)
 
 vec3 result =   (ambient+diffuse+specular) * Color;
 color = vec4(visibility *result, 1);
+//color = vec4(visibility);
+//color = texture( shadowMap[i],fragpos.xy);
 }
