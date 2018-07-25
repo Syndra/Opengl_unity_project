@@ -6,12 +6,21 @@
 #include <glm/glm.hpp>
 #include "ShadowMap.h"
 
-class LightTransform;
 class Transform;
 
 /*
 Maximum #light = 20, check shader's array initializer.
 */
+struct LightProperties 
+{
+	int type;
+	float Power;
+	float FOV;
+	float specularStrenght;
+	glm::vec3 lightColor;
+};
+
+
 class Light
 {
 public:
@@ -20,18 +29,15 @@ public:
 	static int numofLight;
 	static const int degree = 100;
 	static float ambientStrength;
-	float Power;
 
 	int lightID;
 
-	LightTransform * transform;
+	Transform * transform;
+
+	LightProperties * properties;
 
 	ShadowMap *shadowMap;
 	glm::mat4 depthBiasMVP;
-
-	//float ambientStrengh  = 0.1f;
-	float specularStrenth = 0.1f;
-	glm::vec3 lightColor = glm::vec3(0.5f, 0.5f, 0.5f);
 
 	Light(Transform *transform, int type);
 	~Light();

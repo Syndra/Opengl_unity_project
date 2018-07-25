@@ -4,13 +4,16 @@
 #include <glm\glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-class LightTransform;
+class Transform;
+struct LightProperties;
 
 class ShadowMap
 {
 public:
 
-	LightTransform * transform;
+	//LightTransform * transform;
+	Transform * transform;
+	LightProperties * properties;
 
 	GLuint FrameBuffer = 5;
 	GLuint shader;
@@ -19,7 +22,7 @@ public:
 	glm::mat4 depthBiasVP;
 	GLuint depthTexture;
 
-	ShadowMap(LightTransform * transform);
+	ShadowMap(Transform * transform, LightProperties * properties);
 	~ShadowMap();
 
 	bool setupDirectedShadowMap();

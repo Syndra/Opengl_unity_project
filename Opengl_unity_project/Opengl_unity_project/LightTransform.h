@@ -7,7 +7,7 @@ class LightTransform :  public Transform
 {
 public:
 
-	int type;
+	int type;	
 
 	glm::vec3 direction = glm::vec3(0.5, 2, 2);
 	glm::vec3 lookat = glm::vec3(0, -1, 0);
@@ -17,4 +17,3 @@ public:
 	LightTransform();
 	~LightTransform();
 };
-

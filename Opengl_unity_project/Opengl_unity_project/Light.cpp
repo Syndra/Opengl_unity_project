@@ -18,13 +18,19 @@ float Light::ambientStrength;
 
 Light::Light(Transform *transform, int type)
 {
-	this->transform = new LightTransform();
-	this->transform->type = type;
-	this->transform->position = transform->position;
-	this->transform->direction = glm::vec3(0.5f,2,2);
+	Light::ambientStrength = 0.1;
+
+	this->properties = new LightProperties();
+
+	properties->FOV = 0.3f;
+	properties->type = type;
+	properties->Power = 1.f;
+	properties->specularStrenght = 0.1f;
+	properties->lightColor = glm::vec3(0.5f);
+
+	this->transform = transform;
 	this->lightID = Light::numofLight;
-	this->Power = 1.f;
-	this->ambientStrength = 0.1f;
+
 	Light::numofLight++;
 
 	setShadowMap(type);
@@ -38,7 +44,7 @@ Light::~Light()
 
 void Light::setShadowMap(int type) 
 {
-	this->shadowMap = new ShadowMap(this->transform);
+	this->shadowMap = new ShadowMap(this->transform, properties);
 }
 
 void Light::refresh()
@@ -86,16 +92,16 @@ void Light::refresh()
 		GLuint dbmvp = glGetUniformLocation(Shader::shaders.at(i), DepthMVPUniLoca.c_str()); //mat4
 		GLuint texture = glGetUniformLocation(Shader::shaders.at(i), sdwmapUniLoca.c_str());
 		
-		glUniform1i(tp, this->transform->type);
+		glUniform1i(tp, this->properties->type);
 		glUniform1f(as, Light::ambientStrength);
-		glUniform1f(ss, this->specularStrenth);
-		glUniform1f(pw, this->Power * Light::degree);
-		glUniform3fv(lc, 1, &this->lightColor[0]);
+		glUniform1f(ss, this->properties->specularStrenght);
+		glUniform1f(pw, this->properties->Power * Light::degree);
+		glUniform3fv(lc, 1, &this->properties->lightColor[0]);
 		glUniform3fv(lp, 1, &this->transform->position[0]);
-		glUniform3fv(dr, 1, &this->transform->direction[0]);
+		glUniform3fv(dr, 1, &this->transform->get_dir()[0]);
 		
-		glUniform3fv(la, 1, &this->transform->lookat[0]);
-		glUniform1f(fov, this->transform->FOV);
+		glUniform3fv(la, 1, &this->transform->get_Lookat()[0]);
+		glUniform1f(fov, this->properties->FOV);
 
 		glUniform1i(nl, Light::numofLight);
 		glUniformMatrix4fv(dbmvp, 1, GL_FALSE, &this->shadowMap->depthBiasVP[0][0]);

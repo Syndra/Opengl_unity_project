@@ -7,6 +7,7 @@ public:
 
 	static GLfloat deltatime;
 	static GLuint fps;
+	static GLfloat runningtime;
 
 	GLfloat old_time;
 

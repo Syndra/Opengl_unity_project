@@ -2,23 +2,19 @@
 #include "Window.h"
 #include "Timer.h"
 #include "CameraUpdatable.h"
-#include "CameraTransform.h"
+#include "Transform.h"
 #include "Scene.h"
 #include "Light.h"
 
 Camera::Camera()
 {
-	this->transform = new CameraTransform();
+	this->transform = new Transform();
 
 	//set basic properties.
-	transform->position = glm::vec3(0, 5, -5.f);
-	transform->lookat = glm::vec3(0,0,0);
-	transform->fovy = 45.0f;
-	transform->aspect = (float)4 / (float)3;
-	transform->near = 0.1f;
-	transform->far = 100.0f;
-	transform->v_angle = 0.0f;
-	transform->h_angle = 3.14f;
+	fovy = 45.0f;
+	aspect = (float)4 / (float)3;
+	near = 0.1f;
+	far = 100.0f;
 
 	this->updatable = new CameraUpdatable(transform);
 
@@ -39,7 +35,7 @@ Camera::~Camera()
 
 glm::mat4 Camera::get_projection_matrix()
 {
-	return glm::perspective(glm::radians(this->transform->fovy), this->transform->aspect, this->transform->near, this->transform->far);
+	return glm::perspective(glm::radians(fovy), aspect,near,far);
 }
 
 glm::mat4 Camera::get_view_matrix()

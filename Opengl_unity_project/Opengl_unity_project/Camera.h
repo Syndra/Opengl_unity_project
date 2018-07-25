@@ -4,7 +4,7 @@
 #include <glm\glm.hpp>
 #include <glm\gtc\matrix_transform.hpp>
 
-class CameraTransform;
+class Transform;
 class CameraUpdatable;
 class Light;
 
@@ -12,23 +12,16 @@ class Camera
 {
 public:	
 	//Components
-	CameraTransform *transform;
+	Transform *transform;
 	CameraUpdatable *updatable;
 
-	glm::vec3 lookat;
-
-	GLfloat fovy;
-	GLfloat aspect;
-	GLfloat near;
-	GLfloat far;
-
-	GLfloat v_angle;
-	GLfloat h_angle;
-
-	glm::vec3 up = glm::vec3(0,1,0);
+	float fovy;
+	float aspect;
+	float near;
+	float far;
 
 	//For test
-	Light *cameraLight;
+	//Light *cameraLight;
 
 	Camera();
 	~Camera();

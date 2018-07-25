@@ -16,7 +16,7 @@ MyLightSource::MyLightSource()
 	this->light = new Light(this->transform, 0);
 	this->updatable = new MyobjectUpdatable();
 
-	Scene::renderer.push_back(this->renderer);
+	//Scene::renderer.push_back(this->renderer);
 	Scene::updatable.push_back(this->updatable);
 	Scene::light.push_back(this->light);
 

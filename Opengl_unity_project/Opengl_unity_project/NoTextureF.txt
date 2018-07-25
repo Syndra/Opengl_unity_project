@@ -51,6 +51,8 @@ vec2 poissonDisk[4] = vec2[](
   vec2( 0.34495938, 0.29387760 )
 );
 
+vec3 result = vec3(0);
+
 for(int i = 0; i < numofLight; i++)
 {
 	//Direct Light
@@ -58,7 +60,7 @@ for(int i = 0; i < numofLight; i++)
 	{
 		for(int j  = 0 ;j<4;j++){
 		if ( texture( shadowMap[i], ShadowCoord[i].xy  + poissonDisk[j]/700.0 ).x  < ShadowCoord[i].z - bias){
-			visibility -= 0.1;
+			visibility -= 0.2;
 		}
 		}
 		vec3 tempColor = lights[i].lightColor;
@@ -78,24 +80,22 @@ for(int i = 0; i < numofLight; i++)
 	//Spot Light
 	else if(lights[i].type == 1)
 	{
-		for(int j  = 0 ;j<4;j++){
-		if ( texture( shadowMap[i], (ShadowCoord[i].xy / ShadowCoord[i].w  + poissonDisk[j]/700.0 ) ).x  < (ShadowCoord[i].z - bias) / ShadowCoord[i].w){
-			visibility -= 0.1;
-		}
-		}
-		vec3 tempColor = lights[i].lightColor;
 		vec3 lightDisVec3 = lights[i].lightPos - fragpos;
 		float lightDis = pow(lightDisVec3.x, 2) + pow(lightDisVec3.y, 2) + pow(lightDisVec3.z, 2);
 		vec3 lightDir = normalize(lightDisVec3);
+		if(dot(lightDir, normalize(lights[i].lightDirection)) > cos(lights[i].FOV))
+		{
+			for(int j  = 0 ;j<4;j++){
+			if ( texture( shadowMap[i], (ShadowCoord[i].xy / ShadowCoord[i].w  + poissonDisk[j]/700.0 ) ).x  < (ShadowCoord[i].z - bias) / ShadowCoord[i].w){
+			visibility -= 0.25;
+				}
+			}
+		vec3 tempColor = lights[i].lightColor;
+		
 		tempColor *= (lights[i].lightPower / lightDis);
 		float diff = max(dot(norm, lightDir), 0.0);
 
 		diffuse += diff * tempColor;
-		if(dot(lightDir, normalize(lights[i].lookat)) < cos(lights[i].FOV))
-		{
-			diff = 0;
-		}
-
 		//diffuse += diff * lights[i].lightColor;
 
 
@@ -106,11 +106,13 @@ for(int i = 0; i < numofLight; i++)
 		vec3 reflectDir = reflect(-lightDir, norm);
 		float spec = pow(max(dot(viewDir, reflectDir), 0.0), 256);
 		specular += lights[i].specularStrength * spec * tempColor;
+		}
 	}
+	result += (ambient+diffuse+specular) * Color * vec3(visibility);
 }
 
-vec3 result =   (ambient+diffuse+specular) * Color;
-color = vec4(visibility *result, 1);
+
+color = vec4(result, 1);
 //color = vec4(visibility);
 //color = texture( shadowMap[i],fragpos.xy);
 }

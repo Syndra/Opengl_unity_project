@@ -81,5 +81,5 @@ void Renderer::set_shader(GLuint shader)
 
 glm::mat4 Renderer::compute_model_matrix()
 {
-	return glm::translate(glm::mat4(1.0f), this->transform->position) * glm::scale(glm::mat4(1.0), glm::vec3(this->transform->scale));
+	return glm::translate(glm::mat4(1.0f), this->transform->position) * glm::scale(glm::mat4(1.0), glm::vec3(this->transform->scale)) * transform->get_rotationMat();
 }

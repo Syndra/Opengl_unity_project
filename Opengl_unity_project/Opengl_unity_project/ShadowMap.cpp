@@ -7,11 +7,25 @@
 #include "Window.h"
 #include "Transform.h"
 #include "LightTransform.h"
+#include "Light.h"
 
-ShadowMap::ShadowMap(LightTransform * transform)
+ShadowMap::ShadowMap(Transform * transform, LightProperties * properties)
 {
 	shader = Shader::DirShadowShader;
+
 	this->transform = transform;
+
+	this->properties = properties;
+
+	if (properties->type == 0)
+	{
+		this->setupDirectedShadowMap();
+
+	}
+	if (properties->type == 1)
+	{
+		this->setupSpotShadowMap();
+	}
 }
 
 
@@ -42,12 +56,7 @@ bool ShadowMap::setupDirectedShadowMap()
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		return false;
 
-	glm::vec3 lightInvDir = transform->direction;
-
-	glm::mat4 depthProjectionMatrix = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
-	glm::mat4 depthViewMatrix = glm::lookAt(lightInvDir, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
-	this->depthVP = depthProjectionMatrix * depthViewMatrix;
-	return true;
+	
 }
 
 bool ShadowMap::setupSpotShadowMap()
@@ -73,22 +82,26 @@ bool ShadowMap::setupSpotShadowMap()
 	if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
 		return false;
 
-	glm::mat4 depthProjectionMatrix = glm::perspective(glm::radians(45.f), 1.0f, 2.0f, 50.f);
-	glm::mat4 depthViewMatrix = glm::lookAt(this->transform->position+glm::vec3(0.000001), this->transform->lookat, glm::vec3(0, 1, 0));
-	this->depthVP = depthProjectionMatrix * depthViewMatrix;
-	return true;
+	
 }
 
 void ShadowMap::drawShadowMap()
 {
-	if (transform->type == 0)
+	if (properties->type == 0)
 	{
-		setupDirectedShadowMap();
+		glm::vec3 lightInvDir = transform->get_dir();
+
+		glm::mat4 depthProjectionMatrix = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
+		glm::mat4 depthViewMatrix = glm::lookAt(lightInvDir, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+		this->depthVP = depthProjectionMatrix * depthViewMatrix;
 
 	}
-	if (transform->type == 1)
+	if (properties->type == 1)
 	{
-		this->setupSpotShadowMap();
+		glm::mat4 depthProjectionMatrix = glm::perspective(glm::radians(90.f), 1.0f, 0.1f, 100.f);
+		glm::mat4 depthViewMatrix = glm::lookAt(this->transform->position + glm::vec3(0.000001), this->transform->get_Lookat(), glm::vec3(0, 1, 0));
+		this->depthVP = depthProjectionMatrix * depthViewMatrix;
+
 	}
 	glBindFramebuffer(GL_FRAMEBUFFER, this->FrameBuffer);
 	//glBindFramebuffer(GL_FRAMEBUFFER, 0);

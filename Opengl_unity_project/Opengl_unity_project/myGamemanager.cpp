@@ -12,35 +12,31 @@
 
 myGamemanager::myGamemanager()
 {
-	Scene::camera_in_scene->transform->position = glm::vec3(0, 5, 5);
-	Scene::camera_in_scene->lookat = glm::vec3(-5,-10,20);
+	Scene::camera_in_scene->transform->position = glm::vec3(0, 10, 10);
+	Scene::camera_in_scene->transform->lookat = glm::vec3(0, 0, 0);
 
 	MyObject *c = new MyObject();
 	c->transform->position = glm::vec3(0, 0, 0);
 
-	MyObject *panel = new MyObject();
-	panel->transform->position = glm::vec3(0, 0, -10);
-	panel->transform->scale = 10;
-	panel->renderer->shader = Shader::panel;
-	panel->set_model("obj/panel.obj");
-
-
-	/*sunlight = new MyLightSource();
-	sunlight->transform->position = glm::vec3(0,10,10);
-	sunlight->light->lightColor = glm::vec3(1,1,1);
-	sunlight->light->Power = 0.01;
-	sunlight->light->transform->type = 0;
-	sunlight->light->transform->direction = glm::vec3(1,1,-1);
-	sunlight->renderer->onRenderTarget = false;*/
-
-	MyLightSource *spotlight = new MyLightSource();
+	spotlight = new MyLightSource();
 	spotlight->transform->position = glm::vec3(0, 10, 0);
-	spotlight->light->lightColor = glm::vec3(1, 1, 1);
-	spotlight->light->transform->lookat = glm::vec3(1, 1, 1);
-	spotlight->light->Power = 1.f;
-	spotlight->light->transform->type = 1;
-	spotlight->light->transform->FOV = 0.3f;
-	spotlight->renderer->onRenderTarget = true;
+	spotlight->light->properties->lightColor = glm::vec3(1, 1, 1);
+	spotlight->light->transform->euler_angle = glm::vec3(92, 0, 0);
+	spotlight->light->transform->position = glm::vec3(0, 10, 0);
+	spotlight->light->properties->Power = 0.1;
+	spotlight->light->properties->type = 1;
+	spotlight->light->properties->FOV = 0.2f;
+
+	MyLightSource *spotlight2 = new MyLightSource();
+	spotlight2->transform->position = glm::vec3(0, 10, 0);
+	spotlight2->light->properties->lightColor = glm::vec3(1, 1, 1);
+	spotlight2->light->transform->euler_angle = glm::vec3(0.5f, 2.f, 2.f);
+	spotlight2->light->transform->position = glm::vec3(0, 10, 0);
+	spotlight2->light->properties->Power = 0.001;
+	spotlight2->light->properties->type = 0;
+	spotlight2->light->properties->FOV = 0.2f;
+
+	//spotlight->renderer->onRenderTarget = true;
 
 
 	/*pointedlight = new MyLightSource();
@@ -57,22 +53,22 @@ myGamemanager::~myGamemanager()
 
 void myGamemanager::run()
 {
-	/*if (glfwGetKey(Window::window, GLFW_KEY_A) == GLFW_PRESS) {
-		pointedlight->transform->position.x -= 0.1;
+	if (glfwGetKey(Window::window, GLFW_KEY_A) == GLFW_PRESS) {
+		spotlight->transform->euler_angle.x -= 0.01;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_D) == GLFW_PRESS) {
-		pointedlight->transform->position.x += 0.1;
+		spotlight->transform->euler_angle.x += 0.01;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_S) == GLFW_PRESS) {
-		pointedlight->transform->position.y -= 0.1;
+		spotlight->transform->position.y -= 0.1;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_W) == GLFW_PRESS) {
-		pointedlight->transform->position.y += 0.1;
+		spotlight->transform->position.y += 0.1;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_R) == GLFW_PRESS) {
-		pointedlight->transform->position.z -= 0.1;
+		spotlight->transform->position.z -= 0.1;
 	}
 	if (glfwGetKey(Window::window, GLFW_KEY_F) == GLFW_PRESS) {
-		pointedlight->transform->position.z += 0.1;
-	}*/
+		spotlight->transform->position.z += 0.1;
+	}
 }
