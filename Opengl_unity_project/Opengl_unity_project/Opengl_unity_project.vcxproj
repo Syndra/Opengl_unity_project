@@ -136,10 +136,12 @@
     <ClCompile Include="MyLightSource.cpp" />
     <ClCompile Include="MyObject.cpp" />
     <ClCompile Include="MyobjectUpdatable.cpp" />
+    <ClCompile Include="MyTerrain.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="ShadowMap.cpp" />
+    <ClCompile Include="Terrain.cpp" />
     <ClCompile Include="TextureLoader.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="Transform.cpp" />
@@ -164,10 +166,12 @@
     <ClInclude Include="MyLightSource.h" />
     <ClInclude Include="MyObject.h" />
     <ClInclude Include="MyobjectUpdatable.h" />
+    <ClInclude Include="MyTerrain.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShadowMap.h" />
+    <ClInclude Include="Terrain.h" />
     <ClInclude Include="TextureLoader.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />

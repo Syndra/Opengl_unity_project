@@ -5,7 +5,11 @@
 
 using namespace std;
 
-	Model::Model(const GLchar *path)
+Model::Model()
+{
+}
+
+Model::Model(const GLchar *path)
 	{
 		this->loadModel(path);
 	}

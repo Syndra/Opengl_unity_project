@@ -91,7 +91,7 @@ void ShadowMap::drawShadowMap()
 	{
 		glm::vec3 lightInvDir = transform->get_dir();
 
-		glm::mat4 depthProjectionMatrix = glm::ortho<float>(-10, 10, -10, 10, -10, 20);
+		glm::mat4 depthProjectionMatrix = glm::ortho<float>(-100, 100, -100, 100, -200, 200);
 		glm::mat4 depthViewMatrix = glm::lookAt(lightInvDir, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
 		this->depthVP = depthProjectionMatrix * depthViewMatrix;
 

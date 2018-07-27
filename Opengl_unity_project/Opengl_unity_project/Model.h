@@ -23,7 +23,7 @@ using namespace std;
 class Model
 {
 public:
-
+	
 	/*  Model Data  */
 	vector<Mesh> meshes;
 	string directory;
@@ -31,6 +31,7 @@ public:
 
 	/*  Functions   */
 	// Constructor, expects a filepath to a 3D model.
+	Model();
 	Model(const GLchar *path);						// Loads a model with supported ASSIMP extensions from file and stores the resulting meshes in the meshes vector.
 	void loadModel(string path);
 

@@ -9,30 +9,37 @@
 #include "CameraTransform.h"
 #include "Shader.h"
 #include "LightTransform.h"
+#include "MyTerrain.h"
+#include "CameraUpdatable.h"
 
 myGamemanager::myGamemanager()
 {
-	Scene::camera_in_scene->transform->position = glm::vec3(0, 10, 10);
+	Scene::camera_in_scene->transform->position = glm::vec3(0, 20, 10);
 	Scene::camera_in_scene->transform->lookat = glm::vec3(0, 0, 0);
+	//Scene::camera_in_scene->updatable->speed *= 10;
+	//Scene::camera_in_scene->far *= 10;
 
-	MyObject *c = new MyObject();
-	c->transform->position = glm::vec3(0, 0, 0);
+	MyTerrain *a = new MyTerrain();
+	a->transform->scale = 0.02;
 
-	spotlight = new MyLightSource();
+	//MyObject *c = new MyObject();
+	//c->transform->position = glm::vec3(0, 0, 0);
+
+	/*spotlight = new MyLightSource();
 	spotlight->transform->position = glm::vec3(0, 10, 0);
 	spotlight->light->properties->lightColor = glm::vec3(1, 1, 1);
 	spotlight->light->transform->euler_angle = glm::vec3(92, 0, 0);
 	spotlight->light->transform->position = glm::vec3(0, 10, 0);
 	spotlight->light->properties->Power = 0.1;
 	spotlight->light->properties->type = 1;
-	spotlight->light->properties->FOV = 0.2f;
+	spotlight->light->properties->FOV = 0.2f;*/
 
 	MyLightSource *spotlight2 = new MyLightSource();
 	spotlight2->transform->position = glm::vec3(0, 10, 0);
-	spotlight2->light->properties->lightColor = glm::vec3(1, 1, 1);
-	spotlight2->light->transform->euler_angle = glm::vec3(0.5f, 2.f, 2.f);
+	spotlight2->light->properties->lightColor = glm::vec3(1, 1, 0);
+	spotlight2->light->transform->euler_angle = glm::vec3(-0.5f, 2.f, 2.0f);
 	spotlight2->light->transform->position = glm::vec3(0, 10, 0);
-	spotlight2->light->properties->Power = 0.001;
+	spotlight2->light->properties->Power = 0.005;
 	spotlight2->light->properties->type = 0;
 	spotlight2->light->properties->FOV = 0.2f;
 

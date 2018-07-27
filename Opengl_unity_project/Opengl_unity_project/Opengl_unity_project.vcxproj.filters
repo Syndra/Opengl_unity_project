@@ -139,6 +139,12 @@
     <Filter Include="헤더 파일\Engine\SystemLayer\Texture">
       <UniqueIdentifier>{047257ee-e220-43e4-a4dc-3ed76a774ef8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Engine\Terrain">
+      <UniqueIdentifier>{beb1bcf7-dbc0-43fc-b65b-de7e8d26f2fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Terrain">
+      <UniqueIdentifier>{5a7b39ab-f65e-4bc6-8231-0c5b82f14af3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -219,6 +225,12 @@
     <ClCompile Include="LightTransform.cpp">
       <Filter>소스 파일\Engine\Component\Light</Filter>
     </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>소스 파일\Engine\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="MyTerrain.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h">
@@ -298,6 +310,12 @@
     </ClInclude>
     <ClInclude Include="LightTransform.h">
       <Filter>헤더 파일\Engine\Component\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>헤더 파일\Engine\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="MyTerrain.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
