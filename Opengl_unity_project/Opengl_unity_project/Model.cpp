@@ -190,7 +190,7 @@ Model::Model(const GLchar *path)
 
 	// Assign texture to ID
 	glBindTexture(GL_TEXTURE_2D, textureID);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
 
 	// Parameters
@@ -203,3 +203,27 @@ Model::Model(const GLchar *path)
 
 	return textureID;
 }
+
+	void Model::set_DrawType(GLint type)
+	{
+		for (int i = 0; i < meshes.size(); i++) 
+		{
+			meshes.at(i).set_drawType(type);
+		}
+	}
+
+	void Model::set_Transparency(GLfloat alpha)
+	{
+		for (int i = 0; i < meshes.size(); i++)
+		{
+			meshes.at(i).set_alpha(alpha);
+		}
+	}
+
+	void Model::set_Color(glm::vec3 color)
+	{
+		for (int i = 0; i < meshes.size(); i++)
+		{
+			meshes.at(i).set_color(color);
+		}
+	}

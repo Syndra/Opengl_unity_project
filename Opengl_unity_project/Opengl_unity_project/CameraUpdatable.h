@@ -22,8 +22,8 @@ public:
 	float Yaw = -90.0f;
 	float Pitch = 0.0f;
 
-	float mouseSpeed = 0.01f;
-	float speed = 5.0f;
+	float mouseSpeed = 0.1f;
+	float speed = 50.0f;
 
 	CameraUpdatable(Transform *transform);
 	~CameraUpdatable();

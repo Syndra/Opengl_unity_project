@@ -7,6 +7,7 @@
 #include "myGamemanager.h"
 #include "Light.h"
 #include "Shader.h"
+#include "SceneObjectSorter.h"
 
 std::vector<Renderer*> Scene::renderer;
 std::vector<Updatable*> Scene::updatable;
@@ -53,6 +54,9 @@ void Scene::start_scene()
 	while (glfwGetKey(Window::window, GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(Window::window) == 0)
 	{
+		glfwSetCursorPos(Window::window, 1024 / 2, 768 / 2);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 		glEnable(GL_CULL_FACE);
 		glCullFace(GL_FRONT);
@@ -64,11 +68,13 @@ void Scene::start_scene()
 
 		timer->tick();
 
+		//glDisable(GL_BLEND);
 		for (int it = 0; it < Scene::light.size(); it++)
 		{
 			Scene::light.at(it)->refresh();
 		}
 
+		//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 		for (int it = 0; it < Scene::renderer.size(); it++)
 		{
 			Scene::renderer.at(it)->render(camera_in_scene);

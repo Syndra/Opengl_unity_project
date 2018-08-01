@@ -15,6 +15,7 @@ class Terrain : public Model
 public:
 
 	const char * path;
+	unsigned char *heightMap;
 
 	std::vector<Vertex> vertices;
 	std::vector<GLuint> indices;
@@ -27,12 +28,24 @@ public:
 
 	GLuint TextureID;
 
-	glm::vec3 color = glm::vec3(0, 1, 1);
+	//
+	int max;
+	float scale;
+	int maximum_height;
+	bool isAutoGen = false;
+	float **genHeightMap;
 
 	Terrain(const char *path, int width, int length, float degree);
+	Terrain(int detail, int maximum_height, float scale);
 	~Terrain();
 
 	void set_terrain(const char * path);
 	void loadfromHeightMap(const char * path);
+	void init_array(const char *path);
+	char get_height(int index);
+	void gen_HeightMap();
+	void divide(int size);
+	void square(int x, int y, int size, int dis);
+	void diamond(int x, int y, int size, int dis);
 };
 

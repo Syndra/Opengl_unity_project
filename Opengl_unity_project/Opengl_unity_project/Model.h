@@ -23,7 +23,7 @@ using namespace std;
 class Model
 {
 public:
-	
+
 	/*  Model Data  */
 	vector<Mesh> meshes;
 	string directory;
@@ -43,4 +43,7 @@ public:
 	// The required info is returned as a Texture struct.
 	vector<Texture> loadMaterialTextures(aiMaterial *mat, aiTextureType type, string typeName);
 	static GLint TextureFromFile(const char * path, string directory);
+	void set_DrawType(GLint type);
+	void set_Transparency(GLfloat alpha);
+	void set_Color(glm::vec3 color);
 };

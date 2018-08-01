@@ -14,10 +14,15 @@ public:
 	static GLuint NoTextureShader;
 	static GLuint DirShadowShader;
 	static GLuint panel;
+	static GLuint skybox;
+	static GLuint AlphaTest;
+	static GLuint GeoTest;
+	static GLuint fuck;
 
 	static std::vector<GLuint> shaders;
 
 	static GLuint LoadShaders(const char * vertex_file_path, const char * fragment_file_path);
+	static GLuint LoadShaders(const char * vertex_file_path, const char * geometry_file_path, const char * fragment_file_path);
 	
 	static void init_all_shaders();
 

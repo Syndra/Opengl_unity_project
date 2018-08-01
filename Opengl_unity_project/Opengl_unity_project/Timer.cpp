@@ -1,4 +1,5 @@
 #include "Timer.h"
+#include "Shader.h"
 
 GLfloat Timer::deltatime;
 GLuint Timer::fps;
@@ -24,5 +25,11 @@ void Timer::tick()
 	Timer::deltatime = current_time - old_time;
 	Timer::runningtime += deltatime;
 	old_time = current_time;
+	for (int i = 0; i < Shader::shaders.size(); i++) {
+		glUseProgram(Shader::shaders.at(i));
+		GLuint time = glGetUniformLocation(Shader::shaders.at(i), "time");
+
+		glUniform1f(time, this->runningtime);
+	}
 }
 

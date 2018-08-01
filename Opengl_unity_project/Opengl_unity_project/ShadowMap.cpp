@@ -92,7 +92,7 @@ void ShadowMap::drawShadowMap()
 		glm::vec3 lightInvDir = transform->get_dir();
 
 		glm::mat4 depthProjectionMatrix = glm::ortho<float>(-100, 100, -100, 100, -200, 200);
-		glm::mat4 depthViewMatrix = glm::lookAt(lightInvDir, glm::vec3(0, 0, 0), glm::vec3(0, 1, 0));
+		glm::mat4 depthViewMatrix = glm::lookAt(lightInvDir + Scene::camera_in_scene->transform->position, glm::vec3(0, 0, 0) + Scene::camera_in_scene->transform->position, glm::vec3(0, 1, 0));
 		this->depthVP = depthProjectionMatrix * depthViewMatrix;
 
 	}
@@ -116,23 +116,25 @@ void ShadowMap::drawShadowMap()
 	//draw
 	for (int i = 0; i < Scene::renderer.size(); i++)
 	{
-		glm::mat4 depthModelMatrix = Scene::renderer.at(i)->compute_model_matrix();
-		GLuint dmm = glGetUniformLocation(shader, "depthMVP");
+		if (Scene::renderer.at(i)->onShaderTarget) {
+			glm::mat4 depthModelMatrix = Scene::renderer.at(i)->compute_model_matrix();
+			GLuint dmm = glGetUniformLocation(shader, "depthMVP");
 
-		glm::mat4 depthMVP = this->depthVP * depthModelMatrix;
+			glm::mat4 depthMVP = this->depthVP * depthModelMatrix;
 
-		glUniformMatrix4fv(dmm, 1, GL_FALSE, &depthMVP[0][0]);
+			glUniformMatrix4fv(dmm, 1, GL_FALSE, &depthMVP[0][0]);
 
-		for (int j = 0; j < Scene::renderer.at(i)->model->meshes.size(); j++)
-		{
-			glBindVertexArray(Scene::renderer.at(i)->model->meshes.at(j).VAO);
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Scene::renderer.at(i)->model->meshes.at(j).EBO);
-			glDrawElements(
-				GL_TRIANGLES,      // mode
-				Scene::renderer.at(i)->model->meshes.at(j).indices.size(),    // count
-				GL_UNSIGNED_INT,   // type
-				(void*)0           // element array buffer offset
-			);
+			for (int j = 0; j < Scene::renderer.at(i)->model->meshes.size(); j++)
+			{
+				glBindVertexArray(Scene::renderer.at(i)->model->meshes.at(j).VAO);
+				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, Scene::renderer.at(i)->model->meshes.at(j).EBO);
+				glDrawElements(
+					GL_TRIANGLES,      // mode
+					Scene::renderer.at(i)->model->meshes.at(j).indices.size(),    // count
+					GL_UNSIGNED_INT,   // type
+					(void*)0           // element array buffer offset
+				);
+			}
 		}
 	}
 

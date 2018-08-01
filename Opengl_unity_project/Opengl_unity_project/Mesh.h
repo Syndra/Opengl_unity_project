@@ -40,6 +40,8 @@ public:
 
 	const char * path;
 
+	GLint drawType;
+
 	GLuint VAO, VBO, EBO;
 
 	/*std::vector<unsigned short> indices;
@@ -50,6 +52,7 @@ public:
 	GLuint TextureID;
 
 	glm::vec3 color = glm::vec3(1,1,1);
+	GLfloat alpha = 1.0f;
 
 	Mesh(vector<Vertex> vertices, vector<GLuint> indices, vector<Texture> textures);
 	~Mesh();
@@ -57,6 +60,9 @@ public:
 	void Draw(GLuint programID);
 	void setupMesh();
 	void set_texture(const char* filepath);
+	void set_drawType(GLint type);
+	void set_alpha(GLfloat alpha);
+	void set_color(glm::vec3 color);
 	//bool loadAssimp();
 };
 

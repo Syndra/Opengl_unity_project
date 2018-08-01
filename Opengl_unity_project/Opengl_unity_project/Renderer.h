@@ -14,6 +14,7 @@ public:
 
 	//True to render
 	bool onRenderTarget = false;
+	bool onShaderTarget = false;
 
 	//Transform
 	Transform * transform;
@@ -29,6 +30,8 @@ public:
 	void set_model(Model *model);
 	void set_shader(char* V_shader, char* F_shader);
 	void set_shader(GLuint shader);
+	void set_RenderTarget(bool mode);
+	void set_ShadowTarget(bool mode);
 
 	glm::mat4 compute_model_matrix();
 };

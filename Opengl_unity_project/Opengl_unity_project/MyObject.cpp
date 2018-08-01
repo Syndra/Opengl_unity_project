@@ -12,7 +12,8 @@ MyObject::MyObject()
 	this->renderer = new Renderer(this->transform);
 
 	this->model = new Model("obj/wall.obj");
-	//this->model->meshes.at(0).set_texture("drkwood2.jpg");
+	//this->model->meshes.at(0).set_texture("blending_transparent_window.png");
+	this->model->set_DrawType(GL_TRIANGLES);
 
 	this->renderer->set_model(this->model);
 	this->updatable = new Updatable();
@@ -20,8 +21,9 @@ MyObject::MyObject()
 	Scene::renderer.push_back(this->renderer);
 	Scene::updatable.push_back(this->updatable);
 
+	///this->renderer->shader = Shader::AlphaTest;
+	//this->renderer->shader = Shader::GeoTest;
 	this->renderer->shader = Shader::NoTextureShader;
-	//this->renderer->shader = Shader::BasicLightShader;
 }
 
 

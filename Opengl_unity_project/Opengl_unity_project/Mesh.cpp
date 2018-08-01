@@ -4,6 +4,7 @@
 
 Mesh::Mesh(vector<Vertex> vertices, vector<GLuint> indices, vector<Texture> textures)
 {
+	this->drawType = GL_TRIANGLES;
 	this->vertices = vertices;
 	this->indices = indices;
 	this->textures = textures;
@@ -71,6 +72,22 @@ void Mesh::set_texture(const char * filepath)
 
 	TextureID = TextureLoader::CreateTexture(basicpath);
 }
+
+void Mesh::set_drawType(GLint type)
+{
+	this->drawType = type;
+}
+
+void Mesh::set_alpha(GLfloat alpha)
+{
+	this->alpha = alpha;
+}
+
+void Mesh::set_color(glm::vec3 color)
+{
+	this->color = color;
+}
+
 
 void Mesh::setupMesh()
 {

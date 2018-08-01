@@ -50,7 +50,7 @@ void Light::setShadowMap(int type)
 void Light::refresh()
 {
 	this->shadowMap->drawShadowMap();
-
+	//glCreateProgram();
 	for (int i = 0; i < Shader::shaders.size(); i++) {
 		glUseProgram(Shader::shaders.at(i));
 
@@ -106,8 +106,8 @@ void Light::refresh()
 		glUniform1i(nl, Light::numofLight);
 		glUniformMatrix4fv(dbmvp, 1, GL_FALSE, &this->shadowMap->depthBiasVP[0][0]);
 
-		glActiveTexture(GL_TEXTURE0 + this->lightID);
+		glActiveTexture(GL_TEXTURE20 + this->lightID);
 		glBindTexture(GL_TEXTURE_2D, this->shadowMap->depthTexture);
-		glUniform1i(texture, this->lightID);
+		glUniform1i(texture, 20+this->lightID);
 	}
 }

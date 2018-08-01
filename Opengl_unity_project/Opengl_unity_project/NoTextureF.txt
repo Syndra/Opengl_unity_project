@@ -24,6 +24,7 @@ uniform vec3 viewpos;
 uniform light lights[20];
 uniform int numofLight;
 uniform vec3 Color;
+uniform float Transparency;
 
 float random(vec3 seed, int i){
 	vec4 seed4 = vec4(seed,i);
@@ -59,8 +60,8 @@ for(int i = 0; i < numofLight; i++)
 	if(lights[i].type == 0)
 	{
 		for(int j  = 0 ;j<4;j++){
-		if ( texture( shadowMap[i], ShadowCoord[i].xy  + poissonDisk[j]/700.0 ).x  < ShadowCoord[i].z - bias){
-			visibility -= 0.2;
+		if ( texture( shadowMap[i], ShadowCoord[i].xy  + poissonDisk[j]/700.0 ).x < ShadowCoord[i].z - bias){
+			visibility -= 0.25;
 		}
 		}
 		vec3 tempColor = lights[i].lightColor;
@@ -86,9 +87,9 @@ for(int i = 0; i < numofLight; i++)
 		if(dot(lightDir, normalize(lights[i].lightDirection)) > cos(lights[i].FOV))
 		{
 			for(int j  = 0 ;j<4;j++){
-			if ( texture( shadowMap[i], (ShadowCoord[i].xy / ShadowCoord[i].w  + poissonDisk[j]/700.0 ) ).x  < (ShadowCoord[i].z - bias) / ShadowCoord[i].w){
+			if ( texture( shadowMap[i], (ShadowCoord[i].xy / ShadowCoord[i].w  + poissonDisk[j]/700.0 ) ).x < (ShadowCoord[i].z - bias) / ShadowCoord[i].w){
 			visibility -= 0.25;
-				}
+			}
 			}
 		vec3 tempColor = lights[i].lightColor;
 		
@@ -112,7 +113,8 @@ for(int i = 0; i < numofLight; i++)
 }
 
 
-color = vec4(result, 1);
+color = vec4(result * 0.1, Transparency);
+//color = vec4(Color, 1);
 //color = vec4(visibility);
-//color = texture( shadowMap[i],fragpos.xy);
+//color = texture( shadowMap[0],fragpos.xy);
 }
