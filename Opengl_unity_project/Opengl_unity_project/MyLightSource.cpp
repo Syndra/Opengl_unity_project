@@ -7,12 +7,13 @@
 
 MyLightSource::MyLightSource()
 {
-	this->transform = new Transform(0, 10, 0);
+	this->transform = new Transform(-5, 200, 20);
+	this->transform->scale = 10;
 	this->renderer = new Renderer(this->transform);
 
-	this->model = new Model("obj/box.obj");
+	this->model = new Model("obj/sphere.obj");
+	//this->model->set_DrawType(GL_LINES);
 	this->renderer->set_model(this->model);
-	this->renderer->onShaderTarget = false;
 
 	this->light = new Light(this->transform, 0);
 	this->updatable = new MyobjectUpdatable();

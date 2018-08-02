@@ -29,6 +29,7 @@ public:
 	GLuint TextureID;
 
 	//
+	bool isIsland = false;
 	int max;
 	float scale;
 	int maximum_height;

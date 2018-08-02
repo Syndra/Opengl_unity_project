@@ -1,26 +1,26 @@
-#include "MyTerrain.h"
+#include "MyWater.h"
 #include "Terrain.h"
 #include "Scene.h"
 #include "Shader.h"
 #include "Mesh.h"
 #include <ctime>
 
-MyTerrain::MyTerrain()
+MyWater::MyWater()
 {
-	this->transform = new Transform(-100, -50, -100);
+	this->transform = new Transform(0, 0, 0);
 	this->transform->scale = 1;
 	this->renderer = new Renderer(this->transform);
 
 	//this->terrain = new Terrain("obj/index.jpg", 225, 225, 0.3);
-	this->terrain = new Terrain(7, 1, 0.005);
+	this->terrain = new Terrain(9, 1, 0.005);
 	this->renderer->set_model(this->terrain);
 
 	Scene::renderer.push_back(this->renderer);
 
-	this->renderer->shader = Shader::NoTextureShader;
+	this->renderer->shader = Shader::WaterShader;
 	this->terrain->set_Transparency(0.6f);
 	this->terrain->set_Color(glm::vec3(0,0,0.7f));
-	this->terrain->meshes.at(0).set_texture("engineflare1.jpg");
+	//this->terrain->meshes.at(0).set_texture("engineflare1.jpg");
 	//this->renderer->shader = Shader::BasicLightShader;
 
 	GLuint temp;
@@ -43,11 +43,11 @@ MyTerrain::MyTerrain()
 }
 
 
-MyTerrain::~MyTerrain()
+MyWater::~MyWater()
 {
 }
 
-void MyTerrain::set_terrain(const char * path, int width, int length)
+void MyWater::set_terrain(const char * path, int width, int length)
 {
 	terrain = new Terrain(path, width, length, 0.25);
 	this->renderer->set_model(terrain);

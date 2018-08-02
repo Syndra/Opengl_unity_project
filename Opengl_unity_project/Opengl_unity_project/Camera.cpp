@@ -13,7 +13,7 @@ Camera::Camera()
 	//set basic properties.
 	fovy = 45.0f;
 	aspect = (float)4 / (float)3;
-	near = 0.1f;
+	near = 0.01f;
 	far = 1000.0f;
 
 	this->updatable = new CameraUpdatable(transform);

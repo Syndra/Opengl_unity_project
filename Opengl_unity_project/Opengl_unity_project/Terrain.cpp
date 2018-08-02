@@ -51,8 +51,11 @@ void Terrain::loadfromHeightMap(const char * path)
 			vertex.Position = vector_position;
 
 			glm::vec2 vector_texcoord;
-			vector_texcoord.x = (float)x/width;
-			vector_texcoord.y = (float)y/length;
+			//vector_texcoord.x = (float)x/width;
+			//vector_texcoord.y = (float)y/length;
+
+			vector_texcoord.x = x % 2;
+			vector_texcoord.y = y % 2;
 
 			vertex.TexCoords = vector_texcoord;
 
@@ -112,10 +115,19 @@ void Terrain::gen_HeightMap()
 	srand((unsigned int)time(0));
 
 	//set random height each side point.
-	genHeightMap[0][0] = rand() % maximum_height;
-	genHeightMap[0][max] = rand() % maximum_height;
-	genHeightMap[max][0] = rand() % maximum_height;
-	genHeightMap[max][max] = rand() % maximum_height;
+	if (isIsland) 
+	{
+		genHeightMap[0][0] = 0;
+		genHeightMap[0][max] = 0;
+		genHeightMap[max][0] = 0;
+		genHeightMap[max][max] = 0;
+	}
+	else {
+		genHeightMap[0][0] = rand() % maximum_height;
+		genHeightMap[0][max] = rand() % maximum_height;
+		genHeightMap[max][0] = rand() % maximum_height;
+		genHeightMap[max][max] = rand() % maximum_height;
+	}
 
 	divide(max);
 

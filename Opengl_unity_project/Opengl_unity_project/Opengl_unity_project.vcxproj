@@ -124,6 +124,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraTransform.cpp" />
     <ClCompile Include="Collider.cpp" />
+    <ClCompile Include="Coordinator.cpp" />
     <ClCompile Include="CubeCollider.cpp" />
     <ClCompile Include="CubeMap.cpp" />
     <ClCompile Include="FloorObject.cpp" />
@@ -134,10 +135,12 @@
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="myGamemanager.cpp" />
+    <ClCompile Include="MyIsland.cpp" />
     <ClCompile Include="MyLightSource.cpp" />
+    <ClCompile Include="MyMountain.cpp" />
     <ClCompile Include="MyObject.cpp" />
     <ClCompile Include="MyobjectUpdatable.cpp" />
-    <ClCompile Include="MyTerrain.cpp" />
+    <ClCompile Include="MyWater.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="shader.cpp" />
@@ -156,6 +159,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraTransform.h" />
     <ClInclude Include="Collider.h" />
+    <ClInclude Include="Coordinator.h" />
     <ClInclude Include="CubeCollider.h" />
     <ClInclude Include="CubeMap.h" />
     <ClInclude Include="FloorObject.h" />
@@ -166,10 +170,12 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="myGamemanager.h" />
+    <ClInclude Include="MyIsland.h" />
     <ClInclude Include="MyLightSource.h" />
+    <ClInclude Include="MyMountain.h" />
     <ClInclude Include="MyObject.h" />
     <ClInclude Include="MyobjectUpdatable.h" />
-    <ClInclude Include="MyTerrain.h" />
+    <ClInclude Include="MyWater.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
@@ -188,6 +194,9 @@
   <ItemGroup>
     <Text Include="AlphaTest_F.txt" />
     <Text Include="AlphaTest_V.txt" />
+    <Text Include="Coordinate_F.txt" />
+    <Text Include="Coordinate_G.txt" />
+    <Text Include="Coordinate_V.txt" />
     <Text Include="DirShadow_F.txt" />
     <Text Include="DirShadow_V.txt" />
     <Text Include="Geometry_F.txt" />
@@ -196,7 +205,6 @@
     <Text Include="LightFragmentShader.txt" />
     <Text Include="NoTextureF.txt" />
     <Text Include="LightVertexShader.txt" />
-    <Text Include="NoTextureG.txt" />
     <Text Include="NoTextureV.txt" />
     <Text Include="panel_f.txt" />
     <Text Include="panel_v.txt" />
@@ -204,6 +212,9 @@
     <Text Include="SimpleVertexShader.txt" />
     <Text Include="Skybox_F.txt" />
     <Text Include="Skybox_V.txt" />
+    <Text Include="WaterTextureF.txt" />
+    <Text Include="WaterTextureG.txt" />
+    <Text Include="WaterTextureV.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Opengl_unity_project.rc" />

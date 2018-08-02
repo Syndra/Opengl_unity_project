@@ -5,15 +5,15 @@
 
 class Terrain;
 
-class MyTerrain : public Gameobject
+class MyIsland : public Gameobject
 {
 public:
 
 	Renderer * renderer;
 	Terrain * terrain;
 
-	MyTerrain();
-	~MyTerrain();
+	MyIsland();
+	~MyIsland();
 
 	void set_terrain(const char *path, int width, int length);
 };

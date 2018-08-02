@@ -234,14 +234,23 @@
     <ClCompile Include="Terrain.cpp">
       <Filter>소스 파일\Engine\Terrain</Filter>
     </ClCompile>
-    <ClCompile Include="MyTerrain.cpp">
-      <Filter>소스 파일\UserTier\MyObject</Filter>
-    </ClCompile>
     <ClCompile Include="SkyBox.cpp">
       <Filter>소스 파일\Engine\SkyBox</Filter>
     </ClCompile>
     <ClCompile Include="CubeMap.cpp">
       <Filter>소스 파일\Engine\SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="MyWater.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="MyMountain.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="MyIsland.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Coordinator.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -326,9 +335,6 @@
     <ClInclude Include="Terrain.h">
       <Filter>헤더 파일\Engine\Terrain</Filter>
     </ClInclude>
-    <ClInclude Include="MyTerrain.h">
-      <Filter>헤더 파일\UserTier\MyObject</Filter>
-    </ClInclude>
     <ClInclude Include="SkyBox.h">
       <Filter>헤더 파일\Engine\SkyBox</Filter>
     </ClInclude>
@@ -340,6 +346,18 @@
     </ClInclude>
     <ClInclude Include="SceneObjectSorter.h">
       <Filter>헤더 파일\Engine\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="MyWater.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MyMountain.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MyIsland.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordinator.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -394,7 +412,22 @@
     <Text Include="Geometry_G.txt">
       <Filter>리소스 파일\Shaders</Filter>
     </Text>
-    <Text Include="NoTextureG.txt">
+    <Text Include="WaterTextureV.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="WaterTextureG.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="WaterTextureF.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Coordinate_F.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Coordinate_V.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Coordinate_G.txt">
       <Filter>리소스 파일\Shaders</Filter>
     </Text>
   </ItemGroup>

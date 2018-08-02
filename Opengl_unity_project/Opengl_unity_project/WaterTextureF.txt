@@ -16,11 +16,9 @@ float FOV;
 in vec3 fragpos;
 in vec3 normal;
 in vec4 ShadowCoord[20];
-in vec2 pass_uv;
 
 out vec4 color;
 
-uniform sampler2D texture2D;
 uniform sampler2D shadowMap[20];
 uniform vec3 viewpos;
 uniform light lights[20];
@@ -46,8 +44,6 @@ vec3 specular = vec3(0,0,0);
 float visibility = 1.0;
 float bias = 0.005;
 bias = clamp(bias,0f, 0.01);
-
-vec3 texture_color = texture(texture2D, pass_uv).rgb;
 
 vec2 poissonDisk[4] = vec2[](
   vec2( -0.94201624, -0.39906216 ),
@@ -113,12 +109,12 @@ for(int i = 0; i < numofLight; i++)
 		specular += lights[i].specularStrength * spec * tempColor;
 		}
 	}
-	result += (ambient+diffuse+specular) * texture_color * vec3(visibility);
+	result += (ambient+diffuse+specular) * Color * vec3(visibility);
 }
 
 
-color = vec4(result , Transparency);
+color = vec4(result * 0.1, Transparency);
 //color = vec4(Color, 1);
 //color = vec4(visibility);
-//color = texture( texture2D, pass_uv);
+//color = texture( shadowMap[0],fragpos.xy);
 }

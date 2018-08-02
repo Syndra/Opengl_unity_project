@@ -8,7 +8,9 @@ GLuint Shader::panel;
 GLuint Shader::skybox;
 GLuint Shader::AlphaTest;
 GLuint Shader::GeoTest;
-GLuint Shader::fuck;
+GLuint Shader::WaterShader;
+GLuint Shader::Coordinate;
+
 std::vector<GLuint> Shader::shaders;
 
 using namespace std;
@@ -243,7 +245,7 @@ void Shader::init_all_shaders()
 	Shader::shaders.push_back(Shader::NoLightShader);
 	Shader::BasicLightShader = Shader::LoadShaders("LightVertexShader.txt","LightFragmentShader.txt");
 	Shader::shaders.push_back(Shader::BasicLightShader);
-	Shader::NoTextureShader = Shader::LoadShaders("NoTextureV.txt", "NoTextureG.txt","NoTextureF.txt");
+	Shader::NoTextureShader = Shader::LoadShaders("NoTextureV.txt","NoTextureF.txt");
 	Shader::shaders.push_back(Shader::NoTextureShader);
 	Shader::DirShadowShader = Shader::LoadShaders("DirShadow_V.txt", "DirShadow_F.txt");
 	Shader::shaders.push_back(Shader::DirShadowShader);
@@ -253,10 +255,12 @@ void Shader::init_all_shaders()
 	Shader::shaders.push_back(Shader::skybox);
 	Shader::AlphaTest = Shader::LoadShaders("AlphaTest_V.txt", "AlphaTest_F.txt");
 	Shader::shaders.push_back(Shader::AlphaTest);
-	Shader::fuck = Shader::LoadShaders("NoTextureV.txt", "NoTextureF.txt");
-	Shader::shaders.push_back(Shader::fuck);
+	Shader::WaterShader = Shader::LoadShaders("WaterTextureV.txt", "WaterTextureG.txt","WaterTextureF.txt");
+	Shader::shaders.push_back(Shader::WaterShader);
 	Shader::GeoTest = Shader::LoadShaders("Geometry_V.txt", "Geometry_G.txt", "Geometry_F.txt");
 	Shader::shaders.push_back(Shader::GeoTest);
+	Shader::Coordinate = Shader::LoadShaders("Coordinate_V.txt", "Coordinate_G.txt", "Coordinate_F.txt");
+	Shader::shaders.push_back(Shader::Coordinate);
 }
 
 

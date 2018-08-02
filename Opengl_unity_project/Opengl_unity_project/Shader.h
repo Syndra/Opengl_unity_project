@@ -17,7 +17,8 @@ public:
 	static GLuint skybox;
 	static GLuint AlphaTest;
 	static GLuint GeoTest;
-	static GLuint fuck;
+	static GLuint WaterShader;
+	static GLuint Coordinate;
 
 	static std::vector<GLuint> shaders;
 

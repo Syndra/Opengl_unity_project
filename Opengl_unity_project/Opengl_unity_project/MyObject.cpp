@@ -11,7 +11,7 @@ MyObject::MyObject()
 	this->transform = new Transform(0,0,0);
 	this->renderer = new Renderer(this->transform);
 
-	this->model = new Model("obj/wall.obj");
+	this->model = new Model("obj/sphere.obj");
 	//this->model->meshes.at(0).set_texture("blending_transparent_window.png");
 	this->model->set_DrawType(GL_TRIANGLES);
 
@@ -23,7 +23,7 @@ MyObject::MyObject()
 
 	///this->renderer->shader = Shader::AlphaTest;
 	//this->renderer->shader = Shader::GeoTest;
-	this->renderer->shader = Shader::NoTextureShader;
+	this->renderer->shader = Shader::NoLightShader;
 }
 
 

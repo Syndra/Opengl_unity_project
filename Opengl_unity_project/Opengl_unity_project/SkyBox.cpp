@@ -45,12 +45,12 @@ void SkyBox::usecubemap()
 {
 	std::vector<std::string> faces
 	{
-		"obj/CloudyLightRays_px.jpg", //r 
-		"obj/CloudyLightRays_nx.jpg", //l
-		"obj/CloudyLightRays_py.jpg", //t
-		"obj/CloudyLightRays_ny.jpg", //d
-		"obj/CloudyLightRays_pz.jpg", //f
-		"obj/CloudyLightRays_nz.jpg" //b
+		"obj/TropicalSunnyDay_px.jpg", //r 
+		"obj/TropicalSunnyDay_nx.jpg", //l
+		"obj/TropicalSunnyDay_py.jpg", //t
+		"obj/TropicalSunnyDay_ny.jpg", //d
+		"obj/TropicalSunnyDay_pz.jpg", //f
+		"obj/TropicalSunnyDay_nz.jpg" //b
 	};
 	cubemap = new CubeMap(faces);
 }

@@ -18,14 +18,14 @@ float Light::ambientStrength;
 
 Light::Light(Transform *transform, int type)
 {
-	Light::ambientStrength = 0.1;
+	Light::ambientStrength = 0.2;
 
 	this->properties = new LightProperties();
 
 	properties->FOV = 0.3f;
 	properties->type = type;
 	properties->Power = 1.f;
-	properties->specularStrenght = 0.1f;
+	properties->specularStrenght = 0.3f;
 	properties->lightColor = glm::vec3(0.5f);
 
 	this->transform = transform;
