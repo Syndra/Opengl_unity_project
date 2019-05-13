@@ -1,0 +1,14 @@
+#version 430 core
+
+in vec2 pass_uv;
+
+out vec4 color;
+
+uniform sampler2D shadowMap[20];
+
+void main(){
+
+//vec4 texture_color = .x);
+color = texture(shadowMap[1], pass_uv);
+//color = vec4(0);
+}

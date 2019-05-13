@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일\Engine">
+      <UniqueIdentifier>{93db3447-946b-47ea-bc4c-c9b83b7630d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Lib">
+      <UniqueIdentifier>{6b4ef1f6-58ee-4c2e-8b8c-f03da8afa488}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Sprite">
+      <UniqueIdentifier>{42c21832-bc49-458b-8ada-04bf56cccc9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Window">
+      <UniqueIdentifier>{4441c7d4-38e2-4e56-a142-fe8fda3a8472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Window\Scene">
+      <UniqueIdentifier>{d46eafbf-97a3-443d-bbb1-7dd17e8c6082}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine">
+      <UniqueIdentifier>{b8c2d9e2-4a0c-47a9-9e80-c78b17b8b8e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Sprite">
+      <UniqueIdentifier>{70982fd1-c6b5-4370-9f40-183b630ad57b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Window">
+      <UniqueIdentifier>{f3eb553e-89e2-4958-b438-59e4af78cd37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Window\Scene">
+      <UniqueIdentifier>{d7139dba-365e-4d02-9978-818a9a913e7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component">
+      <UniqueIdentifier>{845778e3-2494-4b78-87a9-24d0b1c57966}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Renderer">
+      <UniqueIdentifier>{be22d14b-47f3-423e-bf50-f051dc330fa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Transform">
+      <UniqueIdentifier>{80bafb07-e417-485f-b6a6-cfec68afdd99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Updatable">
+      <UniqueIdentifier>{d0a9481a-3be5-45db-9000-3e702548e22a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Camera">
+      <UniqueIdentifier>{c53876a8-81f4-4eb1-882d-15b93a9b0e2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SystemLayer">
+      <UniqueIdentifier>{dff6dbe5-9609-42d8-aeaf-fb18db0d3228}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SystemLayer\Shader">
+      <UniqueIdentifier>{6fef3ad9-0dbd-4c35-86d4-1185c625ecf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SystemLayer\Timer">
+      <UniqueIdentifier>{67cf6817-4ad2-4da4-a03a-0eece0c08fa4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Gameobject">
+      <UniqueIdentifier>{03b2bce2-5456-4d89-97dc-710e039d8783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Camera">
+      <UniqueIdentifier>{90eded81-0c3b-4083-8521-fe578b37fcb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Gameobject">
+      <UniqueIdentifier>{5c5553a4-c8b0-42d0-ad8e-b112919cd511}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component">
+      <UniqueIdentifier>{8b0c4a35-885d-40ef-87e5-5dfe5ab51e5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Renderer">
+      <UniqueIdentifier>{6ea9baf2-84c9-477d-85be-c78b3b892b52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Transform">
+      <UniqueIdentifier>{d6b8a3b6-9fbc-4c0c-b22a-eb649a4d9ff2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Updatable">
+      <UniqueIdentifier>{58c9d2e2-7af5-4d8c-a64a-def26dd633c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SystemLayer">
+      <UniqueIdentifier>{4b0b6790-9777-4512-a99d-8e7bcf2f25b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SystemLayer\Shader">
+      <UniqueIdentifier>{6f6901c5-e2f0-40a3-ac73-b50e6fe2c929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SystemLayer\Timer">
+      <UniqueIdentifier>{46987c99-b473-49fe-b4f5-8e250b495552}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UserTier">
+      <UniqueIdentifier>{7e251cf5-7569-4622-88fa-3e44685cf06a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UserTier\Gamemanager">
+      <UniqueIdentifier>{ba5fe306-c1f7-4069-9aeb-4f7f6ab2a033}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UserTier">
+      <UniqueIdentifier>{176c03fe-b497-4182-bd65-bee183511cd0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UserTier\Gamemanager">
+      <UniqueIdentifier>{cb9ae2f3-f41a-4b4a-89e6-7695693096e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UserTier\Script">
+      <UniqueIdentifier>{070a27fb-18f0-45cb-9179-4b1fc6aedb4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UserTier\Script">
+      <UniqueIdentifier>{5a9d11ad-00aa-415b-918a-3a2808643c51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Light">
+      <UniqueIdentifier>{e586b109-6e91-4c1f-83f6-f73ffb1124c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Light">
+      <UniqueIdentifier>{faa2cea5-2615-473f-9109-b8e72c9acbb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\UserTier\MyObject">
+      <UniqueIdentifier>{07e5221c-2bbf-4d5b-b634-50670fc73c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\UserTier\MyObject">
+      <UniqueIdentifier>{5085dc04-cff2-4b8e-8c65-355e2e153e68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일\Shaders">
+      <UniqueIdentifier>{45f90a42-136f-4f3a-b847-77cba8fe895f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Component\Physics">
+      <UniqueIdentifier>{49849cf0-1d93-4f9e-8290-f20a3306a145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Component\Physics">
+      <UniqueIdentifier>{2356d1d9-ae21-4d2a-b22a-d41e99c6d9dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SystemLayer\Texture">
+      <UniqueIdentifier>{17644b53-27e7-446f-b3a2-a97e91529438}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SystemLayer\Texture">
+      <UniqueIdentifier>{047257ee-e220-43e4-a4dc-3ed76a774ef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\Terrain">
+      <UniqueIdentifier>{beb1bcf7-dbc0-43fc-b65b-de7e8d26f2fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\Terrain">
+      <UniqueIdentifier>{5a7b39ab-f65e-4bc6-8231-0c5b82f14af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\Engine\SkyBox">
+      <UniqueIdentifier>{aef78e46-c292-4492-9513-960240afb100}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Engine\SkyBox">
+      <UniqueIdentifier>{ad90b3ac-d7c3-4e65-863a-fabf7c248c74}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Camera.cpp">
+      <Filter>소스 파일\Engine\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>소스 파일\Engine\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>소스 파일\Engine\SystemLayer\Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Vertex_data.cpp">
+      <Filter>소스 파일\Engine\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>소스 파일\Engine\SystemLayer\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>소스 파일\Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Updatable.cpp">
+      <Filter>소스 파일\Engine\Component\Updatable</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>소스 파일\Engine\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Gameobject.cpp">
+      <Filter>소스 파일\Engine\Gameobject</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일\UserTier</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraTransform.cpp">
+      <Filter>소스 파일\Engine\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraUpdatable.cpp">
+      <Filter>소스 파일\Engine\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="myGamemanager.cpp">
+      <Filter>소스 파일\UserTier\Gamemanager</Filter>
+    </ClCompile>
+    <ClCompile Include="MyObject.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>소스 파일\Engine\Window\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="MyobjectUpdatable.cpp">
+      <Filter>소스 파일\UserTier\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>소스 파일\Engine\Component\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="MyLightSource.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeCollider.cpp">
+      <Filter>소스 파일\Engine\Component\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>소스 파일\Engine\Component\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>소스 파일\Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>소스 파일\Engine\SystemLayer\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="FloorObject.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadowMap.cpp">
+      <Filter>소스 파일\Engine\Component\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>소스 파일\Engine\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="LightTransform.cpp">
+      <Filter>소스 파일\Engine\Component\Light</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>소스 파일\Engine\Terrain</Filter>
+    </ClCompile>
+    <ClCompile Include="SkyBox.cpp">
+      <Filter>소스 파일\Engine\SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="CubeMap.cpp">
+      <Filter>소스 파일\Engine\SkyBox</Filter>
+    </ClCompile>
+    <ClCompile Include="MyWater.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="MyMountain.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="MyIsland.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Coordinator.cpp">
+      <Filter>소스 파일\UserTier\MyObject</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Camera.h">
+      <Filter>헤더 파일\Engine\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="linmath.h">
+      <Filter>헤더 파일\Engine\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>헤더 파일\Engine\Window\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>헤더 파일\Engine\SystemLayer\Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Vertex_data.h">
+      <Filter>헤더 파일\Engine\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>헤더 파일\Engine\SystemLayer\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>헤더 파일\Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Updatable.h">
+      <Filter>헤더 파일\Engine\Component\Updatable</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>헤더 파일\Engine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>헤더 파일\Engine\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Gameobject.h">
+      <Filter>헤더 파일\Engine\Gameobject</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraTransform.h">
+      <Filter>헤더 파일\Engine\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraUpdatable.h">
+      <Filter>헤더 파일\Engine\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="myGamemanager.h">
+      <Filter>헤더 파일\UserTier\Gamemanager</Filter>
+    </ClInclude>
+    <ClInclude Include="MyObject.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MyobjectUpdatable.h">
+      <Filter>헤더 파일\UserTier\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>헤더 파일\Engine\Component\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="MyLightSource.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeCollider.h">
+      <Filter>헤더 파일\Engine\Component\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>헤더 파일\Engine\Component\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>헤더 파일\Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>헤더 파일\Engine\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>헤더 파일\Engine\SystemLayer\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="FloorObject.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowMap.h">
+      <Filter>헤더 파일\Engine\Component\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="LightTransform.h">
+      <Filter>헤더 파일\Engine\Component\Light</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>헤더 파일\Engine\Terrain</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyBox.h">
+      <Filter>헤더 파일\Engine\SkyBox</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeMap.h">
+      <Filter>헤더 파일\Engine\SkyBox</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObjectSorter.h">
+      <Filter>헤더 파일\Engine\Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="MyWater.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MyMountain.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="MyIsland.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Coordinator.h">
+      <Filter>헤더 파일\UserTier\MyObject</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="SimpleVertexShader.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="LightFragmentShader.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="LightVertexShader.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="SimpleFragmentShader.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="NoTextureF.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="NoTextureV.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="DirShadow_F.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="DirShadow_V.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="panel_f.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="panel_v.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Skybox_V.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Skybox_F.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="AlphaTest_V.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="AlphaTest_F.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Geometry_V.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Geometry_F.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Geometry_G.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="WaterTextureV.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="WaterTextureG.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="WaterTextureF.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Coordinate_F.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Coordinate_V.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+    <Text Include="Coordinate_G.txt">
+      <Filter>리소스 파일\Shaders</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Opengl_unity_project.rc">
+      <Filter>리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

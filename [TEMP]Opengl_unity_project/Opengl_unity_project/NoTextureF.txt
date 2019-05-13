@@ -1,0 +1,124 @@
+#version 430 core
+
+struct light{
+int type;
+float ambientStrength;
+float specularStrength;
+float lightPower;
+vec3 lightColor;
+vec3 lightPos;
+vec3 lightDirection;
+mat4 DepthBiasVP;
+vec3 lookat;
+float FOV;
+};
+
+in vec3 fragpos;
+in vec3 normal;
+in vec4 ShadowCoord[20];
+in vec2 pass_uv;
+
+out vec4 color;
+
+uniform sampler2D texture2D;
+uniform sampler2D shadowMap[20];
+uniform vec3 viewpos;
+uniform light lights[20];
+uniform int numofLight;
+uniform vec3 Color;
+uniform float Transparency;
+
+float random(vec3 seed, int i){
+	vec4 seed4 = vec4(seed,i);
+	float dot_product = dot(seed4, vec4(12.9898,78.233,45.164,94.673));
+	return fract(sin(dot_product) * 43758.5453);
+}
+
+void main(){
+
+vec3 viewDir = normalize(viewpos - fragpos);
+vec3 norm = normalize(normal);
+
+vec3 diffuse = vec3(0,0,0);
+vec3 ambient = vec3(0,0,0);
+vec3 specular = vec3(0,0,0);
+
+float visibility = 1.0;
+float bias = 0.005;
+bias = clamp(bias,0f, 0.01);
+
+vec3 texture_color = texture(texture2D, pass_uv).rgb;
+
+vec2 poissonDisk[4] = vec2[](
+  vec2( -0.94201624, -0.39906216 ),
+  vec2( 0.94558609, -0.76890725 ),
+  vec2( -0.094184101, -0.92938870 ),
+  vec2( 0.34495938, 0.29387760 )
+);
+
+vec3 result = vec3(0);
+
+for(int i = 0; i < numofLight; i++)
+{
+	//Direct Light
+	if(lights[i].type == 0)
+	{
+		for(int j  = 0 ;j<4;j++){
+		if ( texture( shadowMap[i], ShadowCoord[i].xy  + poissonDisk[j]/700.0 ).x < ShadowCoord[i].z - bias){
+			visibility -= 0.25;
+		}
+		}
+		vec3 tempColor = lights[i].lightColor;
+		vec3 lightDisVec3 = lights[i].lightDirection;
+		vec3 lightDir = normalize(lightDisVec3);
+		tempColor *= lights[i].lightPower;
+
+		ambient += lights[i].ambientStrength;
+
+		float diff = max(dot(norm, lightDir), 0.0);
+		diffuse += diff * tempColor;
+
+		vec3 reflectDir = reflect(-lightDir, norm);
+		float spec = pow(max(dot(viewDir, reflectDir), 0.0), 32);
+		specular += lights[i].specularStrength * spec * tempColor;
+	}
+	//Spot Light
+	else if(lights[i].type == 1)
+	{
+		vec3 lightDisVec3 = lights[i].lightPos - fragpos;
+		float lightDis = pow(lightDisVec3.x, 2) + pow(lightDisVec3.y, 2) + pow(lightDisVec3.z, 2);
+		vec3 lightDir = normalize(lightDisVec3);
+		if(dot(lightDir, normalize(lights[i].lightDirection)) > cos(lights[i].FOV))
+		{
+			for(int j  = 0 ;j<4;j++){
+			if ( texture( shadowMap[i], (ShadowCoord[i].xy / ShadowCoord[i].w  + poissonDisk[j]/700.0 ) ).x < (ShadowCoord[i].z - bias) / ShadowCoord[i].w){
+			visibility -= 0.25;
+			}
+			}
+		vec3 tempColor = lights[i].lightColor;
+		
+		tempColor *= (lights[i].lightPower / lightDis);
+		float diff = max(dot(norm, lightDir), 0.0);
+
+		diffuse += diff * tempColor;
+		//diffuse += diff * lights[i].lightColor;
+
+
+		//ambient += lights[i].ambientStrength *  lights[i].lightColor;
+		//ambient += lights[i].ambientStrength *  tempColor;
+		ambient += lights[i].ambientStrength;
+
+		vec3 reflectDir = reflect(-lightDir, norm);
+		float spec = pow(max(dot(viewDir, reflectDir), 0.0), 256);
+		specular += lights[i].specularStrength * spec * tempColor;
+		}
+	}
+	result += (ambient+diffuse+specular) * texture_color * vec3(visibility);
+}
+
+
+color = vec4(result , Transparency);
+//color = vec4(Color, 1);
+//color = vec4(visibility);
+//color = texture( texture2D, pass_uv);
+}
